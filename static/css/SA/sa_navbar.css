@@ -1,0 +1,132 @@
+
+.navbar {
+    background: linear-gradient(90deg, #2C3E50, #4CA1AF);
+    color: #ffffff;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 500;
+    padding: 0rem 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+    padding-left: 60px; /* Adjust this value to move the logo */
+}
+
+.navbar-brand img {
+    height: 30px;
+    width: auto;
+    transition: height 0.3s ease;
+}
+
+.nav-link {
+    font-weight: 600;
+    color: #ffffff;
+    padding: 10px 15px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.d-flex {
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.d-flex p {
+    margin-bottom: 0;
+}
+
+.d-flex a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.d-flex a:hover {
+    text-decoration: underline;
+}
+
+.user-details {
+    font-weight: 500;
+    color: #ffeb3b; /* Highlight color */
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.user-details:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.SignOut:hover{
+    color: red;
+    text-decoration: none !important; 
+}
+
+/* Small screens (max-width: 576px) */
+@media (max-width: 576px) {
+    .navbar {
+        font-size: 14px;
+    }
+    .nav-link {
+        padding: 8px;
+    }
+    .d-flex {
+        font-size: 12px;
+    }
+    .navbar-brand {
+        padding-left: 0;
+    }
+    .navbar-brand img {
+        height: 40px;
+    }
+}
+
+/* Medium screens (min-width: 577px and max-width: 768px) */
+@media (min-width: 577px) and (max-width: 768px) {
+    .navbar {
+        font-size: 16px;
+    }
+    .nav-link {
+        padding: 10px;
+    }
+    .d-flex {
+        font-size: 14px;
+    }
+    .navbar-brand {
+        padding-left: 100px;
+    }
+    .navbar-brand img {
+        height: 45px;
+    }
+}
+
+/* Large screens (min-width: 769px) */
+@media (min-width: 769px) {
+    .navbar {
+        font-size: 18px;
+    }
+    .nav-link {
+        padding: 12px;
+    }
+    .d-flex {
+        font-size: 16px;
+    }
+    .navbar-brand img {
+        height: 50px;
+    }
+}

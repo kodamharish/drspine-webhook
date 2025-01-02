@@ -1,0 +1,36 @@
+.card-icon {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+.card-title {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+.card-text {
+    font-size: 1rem;
+    font-weight: bold;
+}
+.list-group-item {
+    font-size: 0.875rem;
+}
+.rounded-circle {
+    border-radius: 50%;
+}
+
+.table-sm {
+    font-size: 0.875rem; /* Adjust font size */
+}
+
+.table-sm th, .table-sm td {
+    padding: 0.3rem; /* Adjust padding */
+}
+
+.card-body {
+    padding: 1rem; /* Adjust padding to give more space to the table */
+}
+
+.table img {
+    max-width: 100%; /* Ensure images don't overflow */
+    height: auto;
+}
+

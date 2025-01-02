@@ -1,0 +1,85 @@
+{% extends 'app_template/bussiness.html' %}
+
+{% load static %}
+
+{% block title %} Check Number {% endblock %}
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/groupwa/checknumber.css' %}">
+{% endblock %}
+
+{% block bussiness_content %}
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            Check if a Number Exists in Group
+        </div>
+        <div class="card-body">
+            <!-- Message Display Section -->
+            <div id="messageContainer" class="alert d-none" role="alert"></div>
+            
+            <h6 class="card-title">Group</h6>
+            <select id="groupSelect" class="form-select">
+                <option selected>Select One Below</option>
+                {% for group in group %}
+                <option value="{{ group.id }}">{{ group.group_name }}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <div class="sub-header">
+                <h6>Check if the Number is There in Group:</h6>
+            </div>
+            <div class="form-group">
+                <input id="numberInput" type="text" class="form-control">
+            </div>
+            <br>
+            <button id="sendMessageBtn" class="btn btn-primary mb-3" type="button">Send Message</button>
+        </div>
+    </div>
+</div>
+<script>
+document.getElementById('sendMessageBtn').addEventListener('click', function() {
+    var groupId = document.getElementById('groupSelect').value;
+    var number = document.getElementById('numberInput').value;
+    var messageContainer = document.getElementById('messageContainer');
+
+    if (groupId === 'Select One Below' || !number) {
+        displayMessage('Please select a group and enter a number.', 'alert-danger');
+        return;
+    }
+
+    var url = '/Check/';
+    var params = new URLSearchParams();
+    params.append('group_id', groupId);
+    params.append('number', number);
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'X-CSRFToken': '{{ csrf_token }}'
+        },
+        body: params.toString()
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            displayMessage(data.error, 'alert-danger');
+        } else {
+            displayMessage(data.message, 'alert-success');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        displayMessage('An error occurred while processing your request.', 'alert-danger');
+    });
+});
+
+function displayMessage(message, type) {
+    var messageContainer = document.getElementById('messageContainer');
+    messageContainer.classList.remove('d-none', 'alert-success', 'alert-danger');
+    messageContainer.classList.add(type);
+    messageContainer.textContent = message;
+}
+</script>
+{% endblock bussiness_content %}

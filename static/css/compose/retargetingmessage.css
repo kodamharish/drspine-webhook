@@ -1,0 +1,118 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.form-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #52428e;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+select, input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+.card {
+    width: 50%;
+    max-width: 600px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #fff;
+    margin: 20px 0;
+}
+@media (max-width: 767px) {
+    .card {
+        width: 90%;
+    }
+    .form-control,
+    .form-label {
+        font-size: 14px;
+        padding: 10px;
+    }
+    .button-container {
+        padding-top: 5px; 
+        padding-bottom: 5px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .card {
+        width: 70%;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+    .card {
+        width: 60%;
+    }
+}
+.form-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.header{
+    color: rgb(7, 84, 228);
+    text-align: center;
+}
+.btn-green { 
+     background-color: #28a745 !important; 
+     color: #fff !important; 
+     text-align: center !important;
+}

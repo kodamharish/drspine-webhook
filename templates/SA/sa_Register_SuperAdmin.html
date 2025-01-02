@@ -1,0 +1,46 @@
+{% extends 'SA/sa_base.html' %}
+
+{% load static %}
+
+{% block title %} SuperAdmin - Whatsapp {% endblock %}
+
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/SA/sa_Register_SuperAdmin.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block whatsapp_content %}
+<div class="container">
+    <div class="form-container">
+        <h2>SuperAdmin Registration</h2>
+        <form method="post" action="{% url 'SA_register_superAdmin' %}">
+            {% csrf_token %}
+            <div class="row mb-3">
+                <div class="col">
+                    <label for="sa_full_name" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="sa_full_name" name="sa_full_name" required>
+                </div>
+                <div class="col">
+                    <label for="sa_email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="sa_email" name="sa_email" required>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col">
+                    <label for="sa_username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="sa_username" name="sa_username" required>
+                </div>
+                <div class="col">
+                    <label for="sa_password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="sa_password" name="sa_password" required>
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+{% endblock whatsapp_content %}

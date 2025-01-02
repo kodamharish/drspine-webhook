@@ -1,0 +1,40 @@
+{% extends 'app_template/bussiness.html' %}
+{% load static %}
+
+{% block title %}Retargeting message{% endblock %}
+
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/compose/retargetingmessage.css' %}">
+{% endblock styles %}
+
+{% block bussiness_content %}
+<div class="container">
+    <div class="card">
+        <h3 class="header"><b>Compose Retargeting WA</b></h3>
+        <form>
+            <div class="form-group">
+                <label for="template"><b>Select Template to Proceed</b></label>
+                <select id="template" name="template" class="form-control">
+                    <option value="">--Select Template--</option>
+                    <!-- Add your template options here -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="from_date"><b>Select From Date:</b></label>
+                <input type="date" id="from_date" name="from_date" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="to_date"><b>Select To Date:</b></label>
+                <input type="date" id="to_date" name="to_date" class="form-control">
+            </div>
+
+            <div class="button-container">
+                <button type="submit" class="btn btn-green">Proceed to send message</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock bussiness_content %}

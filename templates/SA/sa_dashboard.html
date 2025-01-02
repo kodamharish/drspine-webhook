@@ -1,0 +1,332 @@
+{% extends 'SA/sa_base.html' %}
+
+{% load static %}
+
+{% block title %} SuperAdmin - Dashboard {% endblock %}
+
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/SA/sa_Dashboard.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block whatsapp_content %}
+<div class="container my-5">
+    <!-- Revenue Metrics Section -->
+    <div class="row mb-4">
+        <!-- Total Revenue Card -->
+        <div class="col-md-4">
+            <div class="card text-white bg-primary mb-3">
+                <div class="card-body d-flex align-items-center">
+                    <i class="fas fa-dollar-sign card-icon"></i>
+                    <div>
+                        <h5 class="card-title">Total Revenue</h5>
+                        <p class="card-text">$5000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Monthly Recurring Revenue (MRR) Card -->
+        <div class="col-md-4">
+            <div class="card text-white bg-success mb-3">
+                <div class="card-body d-flex align-items-center">
+                    <i class="fas fa-calendar-alt card-icon"></i>
+                    <div>
+                        <h5 class="card-title">MRR</h5>
+                        <p class="card-text">$1000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Annual Recurring Revenue (ARR) Card -->
+        <div class="col-md-4">
+            <div class="card text-white bg-info mb-3">
+                <div class="card-body d-flex align-items-center">
+                    <i class="fas fa-calendar card-icon"></i>
+                    <div>
+                        <h5 class="card-title">ARR</h5>
+                        <p class="card-text">$12000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Revenue Comparison Chart -->
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Revenue Comparison</h5>
+                    <canvas id="revenueComparisonChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Company and User Management Section -->
+    <div class="row mb-4">
+        <!-- Total Companies Card -->
+        <div class="col-md-3">
+            <div class="card text-white bg-primary mb-3">
+                <div class="card-body d-flex align-items-center">
+                    <i class="fas fa-building card-icon"></i>
+                    <div>
+                        <h5 class="card-title">Total Companies</h5>
+                        <p class="card-text">123</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Active Companies Card -->
+        <div class="col-md-3">
+            <div class="card text-white bg-success mb-3">
+                <div class="card-body d-flex align-items-center">
+                    <i class="fas fa-check-circle card-icon"></i>
+                    <div>
+                        <h5 class="card-title">Active Companies</h5>
+                        <p class="card-text">100</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Total Users Card -->
+        <div class="col-md-3">
+            <div class="card text-white bg-info mb-3">
+                <div class="card-body d-flex align-items-center">
+                    <i class="fas fa-users card-icon"></i>
+                    <div>
+                        <h5 class="card-title">Total Users</h5>
+                        <p class="card-text">450</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Active Users Card -->
+        <div class="col-md-3">
+            <div class="card text-white bg-warning mb-3">
+                <div class="card-body d-flex align-items-center">
+                    <i class="fas fa-user-check card-icon"></i>
+                    <div>
+                        <h5 class="card-title">Active Users</h5>
+                        <p class="card-text">400</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Usage and Performance Section -->
+    <div class="row mb-4">
+        <!-- Total Messages Sent Card -->
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Total Messages Sent</h5>
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="fas fa-envelope-open-text card-icon"></i>
+                        <p class="card-text">450</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><i class="fas fa-bullhorn me-2"></i>Marketing: 200</li>
+                        <li class="list-group-item"><i class="fas fa-wrench me-2"></i>Utility: 150</li>
+                        <li class="list-group-item"><i class="fas fa-user-shield me-2"></i>Authentication: 100</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Messages Sent Per Company Card -->
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Messages Sent Per Company</h5>
+                    <canvas id="messagesPerCompanyChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <!-- Recent Company Registrations Card -->
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Recent Company Registrations</h5>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th scope="col">Logo</th>
+                                <th scope="col">Company Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Number</th>
+                                <th scope="col">Industry</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><img src="logo1.png" class="rounded-circle" alt="Logo 1" width="30" height="30"></td>
+                                <td>Company A</td>
+                                <td>emailA@example.com</td>
+                                <td>1234567890</td>
+                                <td>Industry A</td>
+                            </tr>
+                            <tr>
+                                <td><img src="logo2.png" class="rounded-circle" alt="Logo 2" width="30" height="30"></td>
+                                <td>Company B</td>
+                                <td>emailB@example.com</td>
+                                <td>1234567891</td>
+                                <td>Industry B</td>
+                            </tr>
+                            <tr>
+                                <td><img src="logo3.png" class="rounded-circle" alt="Logo 3" width="30" height="30"></td>
+                                <td>Company C</td>
+                                <td>emailC@example.com</td>
+                                <td>1234567892</td>
+                                <td>Industry C</td>
+                            </tr>
+                            <tr>
+                                <td><img src="logo4.png" class="rounded-circle" alt="Logo 4" width="30" height="30"></td>
+                                <td>Company D</td>
+                                <td>emailD@example.com</td>
+                                <td>1234567893</td>
+                                <td>Industry D</td>
+                            </tr>
+                            <tr>
+                                <td><img src="logo5.png" class="rounded-circle" alt="Logo 5" width="30" height="30"></td>
+                                <td>Company E</td>
+                                <td>emailE@example.com</td>
+                                <td>1234567894</td>
+                                <td>Industry E</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Top Industries by Company Count Card -->
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Top Industries by Company Count</h5>
+                    <canvas id="topIndustriesChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Subscription Plans Section -->
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Plan A</h5>
+                    <p class="card-text">$99/month</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Plan B</h5>
+                    <p class="card-text">$199/month</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Plan C</h5>
+                    <p class="card-text">$299/month</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Peak Usage Times Section -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Peak Usage Times</h5>
+                    <canvas id="peakUsageTimesChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+    <script>
+        // Sample data for Revenue Comparison chart
+        const revenueComparisonData = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+            datasets: [
+                {
+                    label: 'Total Revenue',
+                    data: [1000, 1500, 2000, 2500, 3000, 3500],
+                    borderColor: '#007bff',
+                    borderWidth: 2,
+                    fill: false
+                },
+                {
+                    label: 'MRR',
+                    data: [200, 250, 300, 350, 400, 450],
+                    borderColor: '#28a745',
+                    borderWidth: 2,
+                    fill: false
+                },
+                {
+                    label: 'ARR',
+                    data: [2400, 3000, 3600, 4200, 4800, 5400],
+                    borderColor: '#dc3545',
+                    borderWidth: 2,
+                    fill: false
+                }
+            ]
+        };
+
+        // Sample data for Messages Sent Per Company chart
+        const messagesPerCompanyData = {
+            labels: ['Company A', 'Company B', 'Company C', 'Company D', 'Company E'],
+            datasets: [{
+                label: 'Messages Sent',
+                data: [200, 150, 100, 90, 80],
+                backgroundColor: ['#007bff', '#28a745', '#dc3545', '#ffc107', '#17a2b8'],
+                borderColor: ['#007bff', '#28a745', '#dc3545', '#ffc107', '#17a2b8'],
+                borderWidth: 1
+            }]
+        };
+
+        // Sample data for Top Industries by Company Count chart
+        const topIndustriesData = {
+            labels: ['Industry A', 'Industry B', 'Industry C', 'Industry D', 'Industry E'],
+            datasets: [{
+                label: 'Company Count',
+                data: [5, 4, 3, 2, 1],
+                backgroundColor: ['#007bff', '#28a745', '#dc3545', '#ffc107', '#17a2b8'],
+                borderColor: ['#fff', '#fff', '#fff', '#fff', '#fff'],
+                borderWidth: 1
+            }]
+        };
+
+        // Sample data for Peak Usage Times chart
+        const peakUsageTimesData = {
+            labels: ['0-1 AM', '1-2 AM', '2-3 AM', '3-4 AM', '4-5 AM', '5-6 AM'],
+            datasets: [{
+                label: 'Messages Sent',
+                data: [50, 40, 30, 20, 10, 5],
+                backgroundColor: 'rgba(0, 123, 255, 0.2)',
+                borderColor: '#007bff',
+                borderWidth: 1
+            }]
+        };
+
+
+
+    </script>
+{% endblock %}

@@ -1,0 +1,56 @@
+body {
+    background-color: #f0f0f0 !important;
+    overflow-y: auto;
+}
+
+.container {
+    padding: 20px; /* Increased padding for better spacing */
+}
+
+.card {
+    width: 100%;
+    padding: 20px; /* Increased padding inside the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.card-header h4 {
+    font-size: 1.5rem; /* Slightly larger font size for the header */
+    font-weight: bold;
+    color: #1d2dbd;
+}
+
+.form-group {
+    margin-bottom: 1.5rem; /* Increased margin between form groups */
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 0.5rem; /* Increased space between label and input */
+}
+
+.form-control, .form-select {
+    height: 40px; /* Increased height for better visibility */
+    padding: 8px 12px; /* Increased padding for input fields */
+    font-size: 1rem; /* Slightly larger font size for inputs */
+}
+
+textarea.form-control {
+    resize: vertical;
+    height: 120px; /* Increased height for the textarea */
+    padding: 8px 12px;
+}
+
+.btn {
+    margin-top: 12px;
+    width: 160px; /* Slightly wider button */
+    padding: 10px 0; /* Increased padding for the button */
+    font-size: 1rem; /* Slightly larger font size for the button */
+}
+
+.alert {
+    padding: 8px 12px; /* Increased padding inside alerts */
+    margin-bottom: 12px;
+    font-size: 1rem; /* Slightly larger font size for alert text */
+}

@@ -1,0 +1,108 @@
+body { 
+    background-color: #f0f0f0 !important;
+    overflow-y: auto;
+}
+.container {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    min-height: 100vh !important;
+    padding: 20px !important; /* Add padding to the container */
+}
+.card {
+    width: 100%; /* Card fills the width of the container */
+    max-width: 600px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #fff;
+    margin: 20px 0; 
+}
+
+.click-actions span {
+    display: block;
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding-top: 10px; 
+    padding-bottom: 10px;
+}
+.header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(83, 33, 234) !important;
+    margin-bottom: 20px; /* Adjusted margin */
+    padding-bottom: 10px; /* Reduced padding */
+    border-bottom: 2px solid #0f5311;
+    position: relative;
+}
+.header span {
+    color: #008000;
+}
+.container .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+.container .form-control-file {
+    margin-top: 5px;
+}
+.select-group {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 10px;
+}
+.click-actions span {
+    display: block;
+    color: #007bff;
+    margin-top: 10px;
+}
+.btn {
+    text-align: left;
+    margin-top: 10px;
+    background-color: #4CAF50 !important;
+    border-color: #4CAF50 !important;
+    color: #000 !important;
+    transition: color 0.3s; /* Add transition for smooth color change */
+}
+
+.btn:hover {
+    color: #fff !important; /* Change text color to white on hover */
+}
+/* Responsive Styles */
+@media (max-width: 767px) {
+    .card {
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+    .form-control,
+    .form-label {
+        font-size: 14px;
+        padding: 10px;
+    }
+    .button-container {
+        padding-top: 5px; 
+        padding-bottom: 5px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .card {
+        width: 70%;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+    .card {
+        width: 60%;
+    }
+}
+@media (max-width: 768px) {
+    .content {
+        padding: 20px;
+    }
+}

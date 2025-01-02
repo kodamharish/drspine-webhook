@@ -1,0 +1,26 @@
+.table-responsive {
+  overflow-x:auto;
+}
+.table {
+  width:80%;
+  border-collapse: separate;
+  border-radius: 20px;
+  border: 0.5px solid #ccc;
+  overflow: hidden;
+}
+.table thead th {
+  background-color: #007bff;
+  color: white;
+}
+.table tbody td {
+  background-color: white;
+}
+
+.container{
+  max-width: 600px;
+  margin-left:80px !important;
+  width : 90% !important;
+}
+body{
+  background-color: #f0f0f0 !important;
+}

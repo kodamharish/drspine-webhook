@@ -1,0 +1,84 @@
+body{
+    background-color: #f0f0f0 !important;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 75vh;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.container .card{
+    background-color: #f0f0f0 !important;
+    border: none;
+}
+.content {
+    border-radius: 10px;
+    padding: 30px;
+    width: 100%;
+    max-width: 600px;
+}
+.header {
+    color: rgb(15, 15, 231);
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.header span{
+    color: green;
+}
+.card-title {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+.card-body h5{
+    display: block;
+    margin: 20px 0 5px;
+    font-weight: bold;
+    color: #333;
+    width: 100%;
+}
+.form-select {
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top:10px;
+}
+.btn {
+    background-color: #4CAF50 !important;
+    color: #000 !important;
+    border-radius: 5px;
+
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    border-color: #4CAF50 !important;
+    width:40%;
+}
+.btn:hover {
+    color: #fff !important; /* Change text color to white on hover */
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .content {
+        padding: 20px;
+    }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    .container {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .content {
+        padding: 30px;
+    }
+}

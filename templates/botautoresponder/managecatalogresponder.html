@@ -1,0 +1,57 @@
+{% extends 'app_template/bussiness.html' %}
+{% load static %}
+
+{% block title %} manage catalog responder {% endblock %}
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/botautoresponder/managecatalogresponder.css' %}">
+{% endblock %}
+
+{% block bussiness_content %}
+<body>
+    <div class="container mt-5">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Keyword</th>
+                        <th>Autoresponder Message</th>
+                        <th>Header Text</th>
+                        <th>Products</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>test</td>
+                        <td>test</td>
+                        <td>test</td>
+                        <td>,</td>
+                        <td>
+                            <button class="delete-btn">
+                                <i class="fas fa-trash-alt delete-icon"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="mt-3">
+            Select the Delete Button to delete the Keyword
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".delete-btn").click(function () {
+                // Find the closest row and remove it
+                $(this).closest("tr").remove();
+            });
+        });
+    </script>
+</body>
+{% endblock bussiness_content %}
+

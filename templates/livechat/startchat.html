@@ -1,0 +1,278 @@
+{% extends 'app_template/bussiness.html'%}
+
+{% load static %}
+
+{% block title %} startchat {% endblock %}
+
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/livechat/startchat.css' %}">
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            max-width: 100%;
+            padding: 20px;
+        }
+        
+        
+        .header span {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.1rem;
+        }
+        h2, h4 {
+            color: #333;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .table-container {
+            overflow-x: auto;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            background-color: #ffffff;
+        }
+        .table {
+            width: 100%;
+            min-width: 600px;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+        .table thead tr {
+            background-color: #142f6a;  /* Light blue header background */
+        }
+        .table th {
+            color: #ffffff;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            padding: 15px;
+            text-align: left;
+            border: none;
+        }
+        .table th:first-child {
+            border-top-left-radius: 10px;
+        }
+        .table th:last-child {
+            border-top-right-radius: 10px;
+        }
+        .table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .btn-primary {
+            background-color: #142f6a;
+            border-color: #142f6a;
+            transition: background-color 0.3s, border-color 0.3s;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+        .btn-primary:hover {
+            background-color: #142f6a;
+            border-color: #2980b9;
+        }
+        .chat-modal .modal-content {
+            border-radius: 10px;
+        }
+        .chat-modal .modal-header {
+            background-color: #3498db;
+            color: #fff;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+    
+        .message {
+            background-color: #e6f2ff;
+            border-radius: 15px;
+            padding: 0.75rem 1rem;
+            margin-bottom: 1rem;
+            max-width: 70%;
+            word-wrap: break-word;
+        }
+        .message.received {
+            background-color: #f0f0f0;
+            align-self: flex-start;
+            margin-left: auto;
+        }
+        .timestamp {
+            display: block;
+            font-size: 0.8rem;
+            color: #777;
+            margin-top: 0.5rem;
+        }
+        .modal-footer {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border-top: 1px solid #e0e0e0;
+        }
+        .modal-footer .form-control {
+            margin-right: 10px;
+        }
+    
+        @media (max-width: 992px) {
+            .container {
+                padding: 15px;
+            }
+            h2 {
+                font-size: 1.8rem;
+            }
+            h4 {
+                font-size: 1.2rem;
+            }
+        }
+    
+        @media (max-width: 768px) {
+            .header {
+                padding: 10px;
+            }
+            .header span {
+                font-size: 0.9rem;
+            }
+            .table th, .table td {
+                padding: 0.75rem;
+            }
+            .table th {
+                font-size: 0.8rem;
+            }
+            .modal-dialog {
+                margin: 10px;
+            }
+            .btn-primary {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+        }
+    
+        @media (max-width: 576px) {
+            .container {
+                padding: 10px;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            h4 {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+            }
+            .table-container {
+                border-radius: 0;
+            }
+            .table th:first-child, .table th:last-child {
+                border-radius: 0;
+            }
+            .table th, .table td {
+                padding: 0.5rem;
+                font-size: 0.8rem;
+            }
+            .modal-footer {
+                flex-direction: column;
+            }
+            .modal-footer .form-control {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+    </style>   
+{% endblock %}
+
+{% block bussiness_content %}
+<div class="container">
+    <div class="header">
+        <span>Hi - iiiqbets</span>
+    </div>
+    <h2 class="text-center">Business Whatsapp CHAT</h2>
+    <h4 class="text-center">Your Whatsapp Business Chats</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Chat</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>SMS Service (+918884042626)</td>
+                <td><button class="btn btn-primary start-chat" data-toggle="modal" data-target="#chatModal">Start Chat</button></td>
+            </tr>
+            <tr>
+                <td>SUPPORT (+919513397808)</td>
+                <td><button class="btn btn-primary start-chat" data-toggle="modal" data-target="#chatModal">Start Chat</button></td>
+            </tr>
+            <tr>
+                <td>Bhash Sms (+919513310456)</td>
+                <td><button class="btn btn-primary start-chat" data-toggle="modal" data-target="#chatModal">Start Chat</button></td>
+            </tr>
+            <tr>
+                <td>Zen (+919787005879)</td>
+                <td><button class="btn btn-primary start-chat" data-toggle="modal" data-target="#chatModal">Start Chat</button></td>
+            </tr>
+            <tr>
+                <td>Anand (+919513397803)</td>
+                <td><button class="btn btn-primary start-chat" data-toggle="modal" data-target="#chatModal">Start Chat</button></td>
+            </tr>
+            <tr>
+                <td>kvrao sentu K. Madhuravan (+919902214906)</td>
+                <td><button class="btn btn-primary start-chat" data-toggle="modal" data-target="#chatModal">Start Chat</button></td>
+            </tr>
+            <tr>
+                <td>919448288023 (+919448288023)</td>
+                <td><button class="btn btn-primary start-chat" data-toggle="modal" data-target="#chatModal">Start Chat</button></td>
+            </tr>
+            <tr>
+                <td>HumTum (+917618383766)</td>
+                <td><button class="btn btn-primary start-chat" data-toggle="modal" data-target="#chatModal">Start Chat</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Chat Modal -->
+<div class="modal fade chat-modal" id="chatModal" tabindex="-1" role="dialog" aria-labelledby="chatModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="chatModalLabel">You have chat with 918884042626</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="message">
+                    918884042626 - Thanks for contacting Pritam ! 🙏🏻
+                    <span class="timestamp">2024-03-05 16:14:40</span>
+                </div>
+                <div class="message received">
+                    918884042626 - I want to join
+                    <span class="timestamp">2024-03-05 16:15:36</span>
+                </div>
+                <div class="message">
+                    918884042626 - Speak to us
+                    <span class="timestamp">2024-03-05 16:16:19</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="text" class="form-control" placeholder="Type your message...">
+                <button class="btn btn-primary">Send</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock bussiness_content %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock scripts %}

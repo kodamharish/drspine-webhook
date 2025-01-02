@@ -1,0 +1,17 @@
+body {
+    background-color: #e9ecef;
+}
+.form-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+    max-width: 600px;
+    margin: auto;
+}
+.form-container h2 {
+    margin-bottom: 20px;
+    color: #007bff;
+    text-align: center;
+}

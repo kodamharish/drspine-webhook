@@ -1,0 +1,128 @@
+{% extends 'app_template/bussiness.html'%}
+
+{% load static %}
+
+{% block title %} addagent {% endblock %}
+
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/livechat/addagent.css' %}">
+    <style>
+        #addagent-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 100px);
+            padding: 2rem 1rem;
+            background-color: #f4f4f4;
+        }
+        #addagent-form {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            width: 100%;
+            max-width: 500px;
+            margin-top: 20px;
+        }
+        #addagent-header {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        #addagent-header span {
+            color: #007bff;
+        }
+        .form-group {
+            margin-bottom: 1rem;  
+        }
+        .form-group label {
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 0.25rem; 
+            display: block;  
+        }
+        .form-control {
+            border-radius: 5px;
+            border-color: #ddd;
+            padding: 0.5rem; 
+            font-size: 1rem;
+            width: 100%;
+            display: block;  
+        }
+        .form-control:focus {
+            border-color: #80bdff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+        .btn-custom {
+            background-color: #007bff!Important;
+            border-color: #007bff;
+            color: #ffffff;
+            font-weight: 600;
+            padding: 0.75rem;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            width: 100%;
+            display: block;  
+            margin-top: 1rem;  
+        }
+        .btn-custom:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+            cursor: pointer;  
+        }
+
+        @media (max-width: 576px) {
+            #addagent-form {
+                padding: 1.5rem;
+            }
+            #addagent-header {
+                font-size: 1.1rem;
+            }
+            .form-control, .btn-custom {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block bussiness_content %}
+<div id="addagent-container">
+    <div id="addagent-form">
+        <p id="addagent-header">Add Agent for <span>919008949782</span></p>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="agentName">Agent Name:</label>
+                <input type="text" class="form-control" id="agentName" name="agentName" placeholder="Enter agent name" required>
+            </div>
+            <div class="form-group">
+                <label for="agentUserId">Agent UserId:</label>
+                <input type="text" class="form-control" id="agentUserId" name="agentUserId" placeholder="Enter agent user ID" required>
+            </div>
+            <div class="form-group">
+                <label for="agentPassword">Agent Password:</label>
+                <input type="password" class="form-control" id="agentPassword" name="agentPassword" placeholder="Enter agent password" required>
+            </div>
+            <div class="form-group">
+                <label for="agentPhone">Agent Phone:</label>
+                <input type="tel" class="form-control" id="agentPhone" name="agentPhone" placeholder="Enter agent phone" required>
+            </div>
+            <div class="form-group">
+                <label for="agentEmail">Agent Email:</label>
+                <input type="email" class="form-control" id="agentEmail" name="agentEmail" placeholder="Enter agent email" required>
+            </div>
+            <button type="submit" class="btn btn-custom">Add Agent</button>
+        </form>
+    </div>
+</div>
+{% endblock bussiness_content %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock scripts %}

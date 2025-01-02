@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Form</title>
+<!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap JS (Optional, but needed for components like alerts) -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+<!-- Font Awesome CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #141d38; /* Background color */
+}
+
+.background-image {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background-image: url('https://img.freepik.com/free-vector/silver-bokeh-lights-background_1048-10972.jpg?size=338&ext=jpg&ga=GA1.1.553209589.1714608000&semt=ais');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+}
+
+.form-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(194, 222, 247, 0.756);
+    padding: 50px;
+    border-radius: 1%;
+    box-shadow: 
+        0 0 20px rgba(216, 10, 10, 0.753), 
+        0 0 20px rgba(10, 216, 216, 0.753);
+    width: 25%;
+    height: 65%;
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #020202; 
+}
+
+.form-control {
+    width: 100%;
+    padding: 15px; 
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px; 
+    box-sizing: border-box;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 10px; 
+    border: none;
+    border-radius: 10px; 
+    background: linear-gradient(45deg, #141d38, #f3061af3); 
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-login:hover {
+    background: linear-gradient(45deg, #f3061af3, #141d38);
+}
+
+.forgot-password {
+    text-align: right;
+    margin-top: 10px; 
+}
+
+.forgot-password a {
+    color: #680f0b;
+    text-decoration: none;
+    font-size: small;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+.login-via {
+    font-size: smaller;
+}
+.input-container {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.input-container input {
+    flex: 1;
+    padding-left: 10px;
+}
+
+.input-icon {
+    margin-right: 10px;
+}
+
+.logo {
+    display: block;
+    margin: 0 auto 30px; 
+    width: 150px; 
+    height: auto; 
+}
+
+.form-label {
+    margin-bottom: 10px; 
+    padding-bottom: 10px;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-link a {
+    color: #000;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+.form-label {
+    color: #2c2424; 
+}
+
+.form-control {
+    background-color: rgba(255, 255, 255, 0.84); 
+    color: #000000; 
+    border: 1px solid #ccc; 
+    border-radius: 1px; 
+}
+
+.other-form {
+    margin-top: 50px; 
+    padding: 20px;
+    background-color: #f71915; 
+    border-radius: 10px; 
+    color: #fff; 
+}
+.another-form {
+    margin-top: 50px; 
+    padding: 20px;
+    background-color: #141d38; 
+    border-radius: 1px; 
+    color: #fff; 
+}
+.input-icon {
+    padding: 10px;
+    background-color: rgb(255, 255, 255); 
+    border-radius: 50%; 
+}
+
+.alert.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="background-image"></div>
+
+<div class="form-container">
+    <img src="https://sp-ao.shortpixel.ai/client/q_lossless,ret_img/https://www.iiiqbets.com/wp-content/uploads/2021/04/png-1.png" alt="Your Logo" class="logo">
+    <!-- Display error message from Django messages framework -->
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                <div id="error-message" class="alert alert-danger" role="alert">
+                    <center><strong>{{ message }}</strong></center>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+    <h2>Login</h2>
+    <form action="{% url 'Login' %}" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <div class="input-container">
+                <span class="input-icon"><i class="fas fa-user"></i></span> 
+                <input type="text" id="uID" name="username" class="form-control" placeholder="Enter User Name" required>
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="input-container">
+                <span class="input-icon"><i class="fas fa-key"></i></span> 
+                <input type="password" id="psw" name="password" class="form-control" placeholder="Enter Password" required>
+            </div>
+        </div>        
+        <div class="mb-3">
+            <button type="submit" class="btn btn-login"><b>Login</b></button>
+        </div>
+        <div class="forgot-password">
+            <a href="#">Forgot password?</a>
+        </div>
+    </form>    
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+<script>
+    // Hide the error message after 3 seconds
+    setTimeout(function() {
+        var errorMessage = document.getElementById('error-message');
+        if (errorMessage) {
+            errorMessage.style.display = 'none';
+        }
+    }, 3000); // 3 seconds in milliseconds
+
+   
+</script>
+
+</body>
+</html>

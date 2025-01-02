@@ -1,0 +1,126 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0 !important;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: left;
+    margin-left: 0px;   
+}
+.content {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: -90px; /* Adjust margin-top as needed */
+}
+.header {
+    color: rgb(15, 15, 231);
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;   
+}
+.header span{
+    color: green;
+}
+.card-body{
+    text-align: left !important;
+    margin-bottom: 20px;
+}
+.card-body h5{
+    display: block;
+    margin: 20px 0 5px;
+    font-weight: bold;
+    color: #333;
+    width: 100%;
+    text-align: left !important;
+}
+
+label {
+    margin: 20px 0 5px;
+    font-weight: bold;
+    color: #333;
+    width: 100%;
+    text-align: left !important;
+    display: block;
+ 
+}
+.container input[type="text"], .container input[type="file"], .container textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+}
+.container input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    margin-top: 20px;
+}
+.container a {
+    color: blue;
+    background-color: #4CAF50;
+    text-decoration: none;
+}
+
+
+.content-body {
+    margin-bottom: 20px; /* Added margin for separation */
+}
+.form-select {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.button {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+.button:hover {
+    background-color: #45a049;
+    color: white;
+    text-decoration: none;
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .content {
+        padding: 20px;
+    }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    .container {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .content {
+        padding: 30px;
+    }
+}
+
+

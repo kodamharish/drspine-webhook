@@ -1,0 +1,214 @@
+{% extends 'app_template/bussiness.html'%}
+
+{% load static %}
+
+{% block title %} manageagent {% endblock %}
+
+
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/livechat/manageagent.css' %}">
+    <style>
+        .container {
+            margin-top: 60px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            max-height: 600px;
+        }
+
+        .table-header {
+            background-color: #142f6a;
+            color: #ffffff;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            padding: 15px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .table-header-cell {
+            flex: 1;
+            text-align: center;
+        }
+
+        .table-body {
+            overflow-y: auto;
+            max-height: calc(100% - 50px);  /* Subtract header height */
+        }
+
+        .table {
+            margin-bottom: 0;
+            table-layout: fixed;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table td {
+            padding: 15px;
+            vertical-align: middle;
+            border-color: #e9ecef;
+            text-align: center;
+            word-break: break-word;
+        }
+
+        .table tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .action-icon {
+            cursor: pointer;
+            color: #dc3545;
+            transition: color 0.3s;
+        }
+
+        .action-icon:hover {
+            color: #a71d2a;
+        }
+
+        @media (max-width: 992px) {
+            .container {
+                margin-top: 30px;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin-top: 15px;
+                margin-bottom: 15px;
+                border-radius: 0;
+                box-shadow: none;
+                max-height: none;
+            }
+            .table-header {
+                font-size: 0.8rem;
+                padding: 10px;
+            }
+            .table td {
+                font-size: 0.8rem;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .table-body {
+                overflow-x: auto;
+            }
+            .table {
+                min-width: 800px;
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block bussiness_content %}
+<body>
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <div class="table-header">
+                            <div class="table-header-cell">Agent Name</div>
+                            <div class="table-header-cell">UserId</div>
+                            <div class="table-header-cell">Password</div>
+                            <div class="table-header-cell">Phone</div>
+                            <div class="table-header-cell">Email</div>
+                            <div class="table-header-cell">Action</div>
+                        </div>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Virat Kohli</td>
+                        <td>virat18</td>
+                        <td>virat@123</td>
+                        <td>9876543210</td>
+                        <td>viratkohli@gmail.com</td>
+                        <td class="action"><i class="fas fa-trash-alt action-icon" onclick="confirmDelete(this)"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Glen Maxwell</td>
+                        <td>Maxi19</td>
+                        <td>Mad@123</td>
+                        <td>9845643210</td>
+                        <td>madmax@gmail.com</td>
+                        <td class="action"><i class="fas fa-trash-alt action-icon" onclick="confirmDelete(this)"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Faf du Plessis</td>
+                        <td>Fafdu20</td>
+                        <td>faffy@123</td>
+                        <td>9876543444</td>
+                        <td>duplesis@gmail.com</td>
+                        <td class="action"><i class="fas fa-trash-alt action-icon" onclick="confirmDelete(this)"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Dinesh Karthik</td>
+                        <td>Dkarthik21</td>
+                        <td>dk@123</td>
+                        <td>9825252210</td>
+                        <td>dineshk@gmail.com</td>
+                        <td class="action"><i class="fas fa-trash-alt action-icon" onclick="confirmDelete(this)"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Green</td>
+                        <td>Green10</td>
+                        <td>cam@143</td>
+                        <td>9876543143</td>
+                        <td>camgreen@gmail.com</td>
+                        <td class="action"><i class="fas fa-trash-alt action-icon" onclick="confirmDelete(this)"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Rajat Patidar</td>
+                        <td>Rajat18</td>
+                        <td>patidar@123</td>
+                        <td>9111113210</td>
+                        <td>rajatparidar@gmail.com</td>
+                        <td class="action"><i class="fas fa-trash-alt action-icon" onclick="confirmDelete(this)"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Karn Sharma</td>
+                        <td>karn17</td>
+                        <td>sharma@123</td>
+                        <td>9666643210</td>
+                        <td>karnsharma@gmail.com</td>
+                        <td class="action"><i class="fas fa-trash-alt action-icon" onclick="confirmDelete(this)"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Chris Gayle</td>
+                        <td>gayle123</td>
+                        <td>chris@21</td>
+                        <td>9876333210</td>
+                        <td>Crisgayle@gmail.com</td>
+                        <td class="action"><i class="fas fa-trash-alt action-icon" onclick="confirmDelete(this)"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function confirmDelete(element) {
+            if (confirm('Do you want to delete this row?')) {
+                // Remove the row
+                var row = element.parentNode.parentNode;
+                row.parentNode.removeChild(row);
+            }
+        }
+    </script>
+</body>
+{% endblock bussiness_content %}
+

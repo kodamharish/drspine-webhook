@@ -1,0 +1,63 @@
+.navbar {
+    background-color: #182566;
+    color: #ffffff;
+    width: 100%;
+    position: fixed !important;
+    top: 0;
+    z-index: 1000;
+}
+.nav-link {
+    font-weight: 500;
+    color: #ffffff;
+}
+.nav-link:hover,
+.nav-link:focus {
+    background-color: #ffffff;
+    color: #000000;
+}
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Base Styles */
+
+
+
+/* Small screens (max-width: 576px) */
+@media (max-width: 576px) {
+    .navbar {
+        font-size: 14px;
+    }
+    .nav-link {
+        padding: 8px;
+    }
+    .d-flex {
+        font-size: 12px;
+    }
+}
+
+/* Medium screens (min-width: 577px and max-width: 768px) */
+@media (min-width: 577px) and (max-width: 768px) {
+    .navbar {
+        font-size: 16px;
+    }
+    .nav-link {
+        padding: 10px;
+    }
+    .d-flex {
+        font-size: 14px;
+    }
+}
+
+/* Large screens (min-width: 769px) */
+@media (min-width: 769px) {
+    .navbar {
+        font-size: 18px;
+    }
+    .nav-link {
+        padding: 12px;
+    }
+    .d-flex {
+        font-size: 16px;
+    }
+}

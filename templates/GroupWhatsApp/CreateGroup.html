@@ -1,0 +1,40 @@
+{% extends 'app_template/bussiness.html'%}
+
+{% load static %}
+
+{% block title %} Create Group {% endblock %}
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/groupwa/creategroup.css' %}">
+{% endblock %}
+
+{% block bussiness_content %}
+<div class="container">
+    <div class="card mt-4">
+        <form class="group-form" method="POST">
+            {% csrf_token %}
+            <div class="card-header text-center">
+                <h4>Create <span class="text-success"> Group</span></h4>
+            </div>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-success" role="alert">
+                        Group created successfully
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <div class="form-row">
+                <label for="group-name">Group Name :</label>
+                <input type="text" id="group-name" name="name" required>
+            </div>
+            <div class="form-row">
+                <label for="group-description">Group Description :</label>
+                <input type="text" id="group-description" name="description" required>
+            </div>
+            <div class="form-row">
+                <button class="btn btn-primary" type="submit">Create Group</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock bussiness_content %}

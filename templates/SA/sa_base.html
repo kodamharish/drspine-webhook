@@ -1,0 +1,12 @@
+{% extends 'SA/sa_navbar.html' %}
+{% load static %}
+{% block title %} whatsapp {% endblock %}
+
+
+{%block content%}
+    {% include 'SA/sa_sidemenubar.html' %}
+    <div class="main-content">
+        {% block whatsapp_content %}
+        {% endblock whatsapp_content %}
+    </div>
+{%endblock content%}

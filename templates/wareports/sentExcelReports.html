@@ -1,0 +1,43 @@
+{% extends 'app_template/bussiness.html'%}
+
+{% load static %}
+
+{% block title %}sendexcelreports {% endblock %}
+
+{% block styles %}
+{{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/wareports/sendexcelreports.css' %}">
+{% endblock %}
+        
+{% block bussiness_content %}
+<div class="container">
+        <p class="heading-1">WA Business Sent Reports Excel</p>
+        <p class="heading-2">This shows Outgoing WA Reports.</p>
+        <div class="input-group">
+                <label for="fromDate">From Date :</label>
+                <input type="date" class="form-control"  name="fromDate" placeholder="MM/DD/YYYY">
+        </div>
+        <div class="input-group">
+                <label for="toDate">To Date :</label>
+                <input type="date" class="form-control"  name="toDate" placeholder="MM/DD/YYYY">
+        </div>
+        <div class="input-group">
+                <label for="waNumber">Select WA Business Number :</label>
+                <select id="waNumber" name="waNumber" class="form-control mr-2">
+                        <option value="wa1">WA Number 1</option>
+                        <option value="wa2">WA Number 2</option>
+                        <option value="wa3">WA Number 3</option>
+                </select>
+                <br/>
+        </div>
+        <button class="btn btn-primary">Get Excel WA Outgoing Reports</button>
+</div>
+<script>
+        $(document).ready(function () {
+                $('#fromDate, #toDate').datepicker({
+                        format: 'mm/dd/yyyy',
+                        autoclose: true
+                });
+        });
+</script>
+{% endblock bussiness_content %}

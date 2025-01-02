@@ -1,0 +1,103 @@
+/* Insert the updated CSS for the sidebar here */
+.sidebar {
+    position: fixed;
+    top: 70px;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 48px 0 0;
+    background: linear-gradient(90deg, #2C3E50, #355a6a);
+    color: #ffffff;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    overflow-y: auto;
+    transition: width 0.3s ease, transform 0.3s ease;
+    width: 230px; 
+}
+.sidebar.collapsed {
+    width: 55px; 
+}
+.sidebar {
+    overflow-y: auto !important;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.sidebar::-webkit-scrollbar {
+    display: none !important;
+}
+.nav-link {
+    padding: 8px 16px;
+    font-weight: 500;
+    font-size: 16px;
+    color: #ffffff;
+    position: relative;
+    text-decoration: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.nav-link .link-text {
+    display: inline;
+    margin-left: 10px;
+    transition: opacity 0.3s ease;
+}
+.sidebar.collapsed .link-text {
+    display: none;
+}
+.submenu-toggle {
+    color: #ffeb3b;
+    margin-left: auto;
+    cursor: pointer;
+}
+.submenu {
+    padding-left: 20px;
+    font-size: 14px;
+    display: none;
+}
+.sidebar.collapsed .submenu-toggle {
+    display: none;
+}
+.active-link {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    margin: 5px;
+    border-radius: 5px;
+}
+.fas {
+    margin-right: 10px;
+}
+.toggle-btn {
+    position: fixed;
+    top: 70px;
+    left: 10px; 
+    z-index: 101;
+    padding: 10px;
+    background-color: #2C3E50;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    transition: left 0.3s ease;
+}
+.main-content {
+    transition: width 0.3s ease;
+    margin-left: 250px;
+}
+.sidebar.collapsed + .main-content {
+    margin-left: 55px; 
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .sidebar {
+        top: 55px !important;
+    }
+    .toggle-btn {
+        top: 55px !important;
+    }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .sidebar {
+        top: 65px !important;
+    }
+}

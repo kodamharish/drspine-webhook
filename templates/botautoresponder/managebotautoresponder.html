@@ -1,0 +1,107 @@
+{% extends 'app_template/bussiness.html'%}
+
+{% load static %}
+
+{% block title %} manage bot Autoresponder {% endblock %}
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/botautoresponder/managebotautoresponder.css' %}">
+{% endblock %}
+
+
+
+
+{% block bussiness_content %}
+<body>
+    <div class="container mt-5">
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Keyword</th>
+              <th>Autoresponder Message</th>
+              <th>Button 1</th>
+              <th>Button 2</th>
+              <th>Button 3</th>
+              <th>Button 4</th>
+              <th>Button 5</th>
+              <th>Button 6</th>
+              <th>Button 7</th>
+              <th>Button 8</th>
+              <th>Button 9</th>
+              <th>Button 10</th>
+              <th>Header Type</th>
+              <th>URL</th>
+              <th>Drip Campaign</th>
+              <th>Make this Default Bot Responder</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Not Interested</td>
+              <td>Thank you for letting us know. Stay in touch with us through our women's community and programs.</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>Type 1</td>
+              <td>URL 1</td>
+              <td>Campaign 1</td>
+              <td><input type="checkbox"></td>
+              <td><button class="btn btn-danger btn-sm">Delete</button></td>
+            </tr>
+            <tr>
+              <td>Not interested</td>
+              <td>Thank you for letting us know. Stay in touch with us through our women's community and programs.</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>Type 2</td>
+              <td>URL 2</td>
+              <td>Campaign 2</td>
+              <td><input type="checkbox"></td>
+              <td><button class="btn btn-danger btn-sm">Delete</button></td>
+            </tr>
+            <tr>
+              <td>I want to</td>
+              <td>Thank you! We will...</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>Type 3</td>
+              <td>URL 3</td>
+              <td>Campaign 3</td>
+              <td><input type="checkbox"></td>
+              <td><button class="btn btn-danger btn-sm">Delete</button></td>
+            </tr>
+            <!-- Add more rows as needed -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+  {% endblock bussiness_content %}

@@ -1,0 +1,32 @@
+{% extends 'app_template/bussiness.html'%}
+
+{% load static %}
+
+{% block title %} Upload Options for Group {% endblock %}
+
+
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/groupwa/addcontacts.css' %}">
+{% endblock %}
+
+{% block bussiness_content %}
+<body>
+    <div class="container">
+        <div class="card mt-4">
+            <div class="card-header text-center">
+                <h4>Select upload options for <span class="text-success"> group</span></h4>
+            </div>
+            <div class="upload-option text-center">
+                <a href="{% url 'SingleContactUpload'%}"> 
+                    <span class="icon">&#128194;</span> Manual Upload
+                </a>
+                <a href="{% url 'ContactExcelUpload'%}"> 
+                    <span class="icon">&#128193;</span> Excel Upload
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock bussiness_content %}
+

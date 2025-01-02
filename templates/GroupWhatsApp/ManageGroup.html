@@ -1,0 +1,103 @@
+{% extends 'app_template/bussiness.html' %}
+{% load static %}
+
+{% block title %} Manage Groups{% endblock %}
+
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/groupwa/managegroup.css' %}">
+    <style>
+        .action-icon {
+            cursor: pointer;
+        }
+    </style>
+{% endblock %}
+
+{% block bussiness_content %}
+<div class="container my-2">
+    <div class="card-header text-center">
+        <h4>Manage Whastapp<span class="text-success"> Groups</span></h4>
+    </div>
+
+    <div class="search-container">
+        <input class="form-control" id="tableSearch" type="text" placeholder="Search...">
+    </div>
+
+    <div class="table-container">
+        <table class="table table-hover table-bordered table-striped" id="groupTable">
+            <thead class="table-th">
+                <tr>
+                    <th onclick="sortTable(0)">Group Name</th>
+                    <th onclick="sortTable(1)">Contacts - Total Count</th>
+                    <th onclick="sortTable(2)">Export</th>
+                    <th onclick="sortTable(3)">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for group in group %}
+                    <tr>
+                        <td><a href="{% url 'ManageGroupContacts' group.id %}">{{ group.group_name }}</a></td>
+                        <td>{{ group.numbers.count }}</td>
+                        <td><a href="{% url 'ManageGroupContacts' group.id %}"><i class="fas fa-file-export action-icon" onclick="exportRow(this)"></i></a></td>
+                        <td class="icon">
+                            <a href="{% url 'DeleteGroup' group.id %}" class="delete-link"
+                               onclick="return confirm('Are you sure you want to delete this template?');">
+                                <i class="fas fa-trash-alt delete-icon"></i>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Search functionality
+    document.getElementById("tableSearch").addEventListener("keyup", function() {
+        let input = this.value.toLowerCase();
+        let rows = document.querySelectorAll("#groupTable tbody tr");
+
+        rows.forEach(function(row) {
+            let text = row.textContent.toLowerCase();
+            row.style.display = text.includes(input) ? "" : "none";
+        });
+    });
+
+    // Sort functionality
+    function sortTable(n) {
+        let table = document.getElementById("groupTable");
+        let rows = Array.from(table.rows).slice(1);
+        let ascending = table.rows[0].cells[n].classList.toggle("ascending");
+
+        rows.sort(function(rowA, rowB) {
+            let cellA = rowA.cells[n].textContent.trim();
+            let cellB = rowB.cells[n].textContent.trim();
+
+            if (!isNaN(cellA) && !isNaN(cellB)) {
+                return ascending ? cellA - cellB : cellB - cellA;
+            } else {
+                return ascending ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
+            }
+        });
+
+        rows.forEach(function(row) {
+            table.tBodies[0].appendChild(row);
+        });
+    }
+
+    // Export functionality (dummy function for example purposes)
+    function exportRow(element) {
+        alert('Export functionality triggered for: ' + element.closest('tr').cells[0].textContent);
+    }
+
+    function exportRow(element) {
+        // Navigate to the provided file URL
+        var fileUrl = 'http://127.0.0.1:5500/manage-GroupTable/manageGroupContacts.html';
+        window.location.href = fileUrl;
+    }
+</script>
+
+{% endblock bussiness_content %}
+

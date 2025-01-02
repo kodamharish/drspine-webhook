@@ -1,0 +1,67 @@
+body {
+    background-color: #f0f0f0 !important;
+    font-family: Arial, sans-serif;
+}
+.container {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    margin-left: 250px !important;
+}
+h1 {
+    text-align: left;
+    margin-bottom: 20px !important;
+    font-size: 24px !important;
+    font-weight: bold !important;
+    color: rgb(83, 33, 234) !important;
+}
+
+h1 span {
+    color: #008000;
+    font-size: 24px;
+}
+
+label {
+    display: block;
+    margin: 20px 0 5px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+    width: 100%;
+}
+
+select,button[type="submit"] {
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 100%;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+.error {
+    color: red;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.error {
+    color: red;
+    display: none;
+}
+.form-group select, .container button {
+    width: 40% !important; /* Set width to 100% for inline display */
+}

@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0 !important;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 45px);
+    padding-top: 25px;
+    margin-bottom: 15px;   
+}
+.container .card {
+    max-width: 600px !important;
+    width: 100%;
+    padding: 30px !important;
+}
+.container .header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: rgb(83, 33, 234) !important;
+}
+.container .header span {
+    color: #008000;
+}
+.container label {
+    display: block;
+    margin-top: 10px;
+}
+.container .form-label {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+.container input[type="text"], .container input[type="file"], .container textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+}
+.container input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    margin-top: 20px;
+}
+.container .form-control {
+    font-size: 0.9rem;
+    padding: 0.375rem 0.75rem;
+}
+.container textarea.form-control {
+    resize: vertical;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .container .card {
+        padding: 20px;
+    }
+}
+
+.btn {
+    text-align: left;
+    align-items:center;
+    margin-top: 20px;
+    background-color: #4CAF50 !important;
+    border-color: #4CAF50 !important;
+    color: #000 !important;
+    transition: color 0.3s; /* Add transition for smooth color change */
+}
+
+.btn:hover {
+    color: #fff !important; /* Change text color to white on hover */
+}
+form .text-end {
+    text-align: left !important;
+}

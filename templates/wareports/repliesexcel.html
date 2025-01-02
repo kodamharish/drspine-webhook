@@ -1,0 +1,58 @@
+{% extends 'app_template/bussiness.html'%}
+
+{% load static %}
+
+{% block title %} repliesexcel {% endblock %}
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/wareports/repliesexcel.css' %}">
+    {% endblock %}
+
+{%block bussiness_content %}
+<div class="container">
+    <p class="heading-1">WA Business Incoming Reports Excel</p>
+    <p class="heading-2">This shows Incoming WA Reports</p>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="input-group">
+                <label for="fromDate">From Date :</label>
+                <input type="date" id="fromDate" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="input-group">
+                <label for="toDate">To Date :</label>
+                <input type="date" id="toDate" class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="input-group">
+        <label for="waNumber">Select WA Business Number :</label>
+        <select id="waNumber" name="waNumber" size="3" class="form-control mr-2">
+            <option value="1">919008949782</option>
+            <option value="2">919113949421</option>
+            <option value="3">911234567899</option>
+        </select>
+    </div>
+    <div class="input-group">
+        <label for="groupClassification">Select Group Classification (If Any)</label>
+        <select id="groupClassification" name="groupClassification" class="form-control mr-2">
+            <option selected>All</option>
+            <option value="template1">Group 1</option>
+            <option value="template2">Group 2</option>
+            <option value="template3">Group 3</option>
+        </select>
+    </div>
+    <div class="input-group">
+        <label for="dripCampaigns">Select Drip Campaigns (If Any)</label>
+        <select id="dripCampaigns" name="dripCampaigns" class="form-control mr-2">
+            <option selected>All</option>
+            <option value="template1">Group 1</option>
+            <option value="template2">Group 2</option>
+            <option value="template3">Group 3</option>
+        </select>
+    </div>
+    <br>
+    <button class="btn btn-primary mb-3" type="button">Get WA Incoming Reports</button>
+</div>
+{% endblock bussiness_content %}

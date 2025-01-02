@@ -1,0 +1,12 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %} bussiness {% endblock %}
+
+
+{%block content%}
+    {% include 'app_template/Side Menu bar.html' %}
+    <div class="main-content">
+        {% block bussiness_content %}
+        {% endblock bussiness_content %}
+    </div>
+{%endblock content%}

@@ -10,7 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
-from pathlib import Path,os
+from pathlib import Path
+import os
 
 
 
@@ -42,6 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'webhook',  # Your app
     'corsheaders',  # CORS
+    'crm',
+    'rest_framework',
+
 ]
 
 MIDDLEWARE = [
@@ -71,6 +75,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'crm.context_processor.Super_Admin',
+                'crm.context_processor.Custom_User',
             ],
         },
     },

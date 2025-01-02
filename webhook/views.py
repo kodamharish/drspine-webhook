@@ -32,9 +32,9 @@ import json
 
 
 # Hardcoded sensitive tokens (For testing purposes only, not recommended for production)
-WEBHOOK_VERIFY_TOKEN = 'harish'
-GRAPH_API_TOKEN = 'EAAqJlXY27X4BOZBpv9UT9JTQL3fuQyXQaVTK73pAO6hDOnuBZCjDaAqxMq42bjFzlF6ebMtdXckiRO6ZCPOmS3zqtOttLCxlzCKo0DPwPZBebijdWIIqGXPTYB3ta9plujwndKtlCl7yu8cad19CrxjYKGgANSofhAzTCIpbxebHW4MPFiP9KWRlYDiYZBZBnykgZDZD'
-BUSINESS_PHONE_NUMBER_ID = '482657464921213'
+WEBHOOK_VERIFY_TOKEN = 'varun'
+GRAPH_API_TOKEN = 'EAAGDQdUOFfUBO5H24wotZAqmZBswF2McQ4epf65lHpsZBx4IxtIAufOvUfZAObQjnWEaYOFMK85UmHySZCbKwdHRQm6AZBaM1WQ13nTmka2pqpwPlWvQufb0xoYVAWtQhlORnGsQsDwznPcB6ZA3RXJVPwkZBHEixuwhZBEd9NKwvJuQJvqxqJAhmQxhSW3wMorsQriDTxefz64XPWzMUjknCQk9iIHNniunZAkZAcqNAGm'
+BUSINESS_PHONE_NUMBER_ID = '446402058564779'
 
 def send_whatsapp_message(phone_number, message, context=None):
     reply_payload = {
@@ -67,119 +67,7 @@ def send_whatsapp_message(phone_number, message, context=None):
 
 
 
-@csrf_exempt
-def webhook1234(request):
-    if request.method == 'GET':
-        # Handle webhook verification
-        mode = request.GET.get('hub.mode')
-        token = request.GET.get('hub.verify_token')
-        challenge = request.GET.get('hub.challenge')
 
-        if mode == 'subscribe' and token == WEBHOOK_VERIFY_TOKEN:
-            print("Webhook verified successfully!")
-            return HttpResponse(challenge, status=200)
-        else:
-            return HttpResponse(status=403)
-
-    elif request.method == 'POST':
-        try:
-            data = json.loads(request.body)
-        except json.JSONDecodeError:
-            return HttpResponse(status=400)
-
-        # Extract message details
-        entry = data.get('entry', [])
-        if not entry:
-            return HttpResponse(status=400)
-
-        changes = entry[0].get('changes', [])
-        if not changes:
-            return HttpResponse(status=400)
-
-        value = changes[0].get('value', {})
-        messages = value.get('messages', [])
-        if not messages:
-            return HttpResponse(status=200)  # No message to process
-
-        message = messages[0]
-        message_type = message.get('type')
-
-        if message_type == 'text':
-            phone_number = message.get('from')  # Sender's WhatsApp ID
-            message_body = message.get('text', {}).get('body').strip().lower()
-
-            if not phone_number or not message_body:
-                return HttpResponse(status=400)
-
-            # Determine the response based on the message content
-            if message_body in ['hi', 'hello', 'hey']:
-                response_text = (
-                    "Hi! Welcome to **Taare Zamin Par (TZP)**.\n"
-                    "Here are the classes we offer:\n\n"
-                    "1. **3 Days Fun Astronomy Classes**\n"
-                    "2. **5 Days Biology Lab Classes**\n\n"
-                    "Please enter the number corresponding to the class you're interested in."
-                )
-            elif message_body == '1':
-                response_text = (
-                    "**3 Days Fun Astronomy Classes**\n\n"
-                    "- **Duration:** 3 Days\n"
-                    "- **Schedule:**\n"
-                    "  - **Day 1:** Introduction to Astronomy\n"
-                    "  - **Day 2:** Telescope Session\n"
-                    "  - **Day 3:** Night Sky Observation\n"
-                    "- **Price:** $150\n\n"
-                    "Would you like to enroll?\n"
-                    "yes or no"
-                )
-            elif message_body == '2':
-                response_text = (
-                    "**5 Days Biology Lab Classes**\n\n"
-                    "- **Duration:** 5 Days\n"
-                    "- **Schedule:**\n"
-                    "  - **Day 1:** Biology Basics\n"
-                    "  - **Day 2:** Cell Structure\n"
-                    "  - **Day 3:** Genetics\n"
-                    "  - **Day 4:** Ecology\n"
-                    "  - **Day 5:** Lab Projects\n"
-                    "- **Price:** $300\n\n"
-                    "Would you like to enroll?\n"
-                    "yes or no"
-                )
-            elif message_body == 'yes':
-                response_text = (
-                    "Thank you for your response we will get back to you ASAP"
-                )
-            elif message_body == 'no':
-                response_text = (
-                    "Thank you for your response for more information please visit our webiste\n"
-                    
-                )
-            else:
-                response_text = (
-                    "I'm sorry, I didn't understand that. Please respond with:\n"
-                    "- **Hi** to start the conversation.\n"
-                    "- **1** or **2** to choose a class."
-                )
-
-            # Send the response to the customer
-            send_whatsapp_message(phone_number, response_text, context=message.get('id'))
-
-            # Save the message and response to the database
-            try:
-                Message.objects.create(
-                    phone_number=phone_number,
-                    message_body=message_body,
-                    response_body=response_text
-                )
-            except Exception as e:
-                print(f"Error saving message: {e}")
-                return HttpResponse(status=500)
-
-        return HttpResponse(status=200)
-
-    else:
-        return HttpResponse(status=405)  # Method Not Allowed
 
 
 

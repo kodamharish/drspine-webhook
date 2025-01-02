@@ -1,0 +1,138 @@
+body{
+    background-color: #f0f0f0 !important;
+}
+.container {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    margin-left:250px !important;
+}
+.container .heading-1 {
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(83, 33, 234);
+}
+.container .heading-2 {
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #666;
+}    
+.container label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+    width: 100%;
+}  
+.container input[type="date"],
+.container select {
+    display: left;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 100%; 
+}
+#waNumber {
+    border-radius: 4px;
+}
+.input-group {
+    width: 40%!important;
+    margin-bottom: 15px !important;
+}
+.btn {
+    background-color: #4CAF50 !important;
+    border-color: #4CAF50 !important;
+    color: #000 !important;
+    transition: color 0.3s; /* Add transition for smooth color change */
+}
+
+.btn:hover {
+    color: #fff !important; /* Change text color to white on hover */
+}
+
+/* Media Queries */
+
+/* Small screens (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .container {
+        padding: 10px;
+        box-shadow: none;
+    }
+
+    .container .heading-1 {
+        font-size: 20px;
+    }
+
+    .container .heading-2 {
+        font-size: 16px;
+    }
+
+    .container label,
+    .container input[type="date"],
+    .container select {
+        font-size: 14px;
+    }
+
+    .container .btn-container button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+/* Medium screens (tablets, 601px to 1024px) */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .container {
+        max-width: 80%;
+    }
+
+    .container .heading-1 {
+        font-size: 22px;
+    }
+
+    .container .heading-2 {
+        font-size: 17px;
+    }
+
+    .container label,
+    .container input[type="date"],
+    .container select {
+        font-size: 15px;
+    }
+
+    .container .btn-container button {
+        font-size: 15px;
+        padding: 9px 18px;
+    }
+}
+
+/* Large screens (desktops, 1025px and up) */
+@media only screen and (min-width: 1025px) {
+    .container {
+        max-width: 600px;
+    }
+
+    .container .heading-1 {
+        font-size: 25px;
+    }
+
+    .container .heading-2 {
+        font-size: 18px;
+    }
+
+    .container label,
+    .container input[type="date"],
+    .container select {
+        font-size: 16px;
+    }
+
+    .container .btn-container button {
+        font-size: 15px;
+        padding: 10px 20px;
+    }
+}

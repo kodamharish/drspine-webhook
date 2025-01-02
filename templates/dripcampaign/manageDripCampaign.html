@@ -1,0 +1,104 @@
+{% extends 'app_template/bussiness.html'%}
+{% load static %}
+
+{% block title %} manageDripCampaign {% endblock %}
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/dripcampaign/manageDripCampaign.css' %}">
+{% endblock %}
+
+{% block bussiness_content %}
+<body>
+    <div class="table-container">
+        <table class="table table-bordered table-hover">
+            <thead class="thead-light">
+                <tr>
+                    <th>Campaign Name</th>
+                    <th>No of Customers in Campaign</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="campaignTableBody">
+                <tr>
+                    <td>Campaign 10</td>
+                    <td>10</td>
+                    <td class="icon"><a href="{% url 'manageDripCampaignedit' %}"><i class="fas fa-edit edit-icon"></i></a></td>
+                    <td class="icon"><i class="fas fa-trash-alt delete-icon"></i></td>
+                </tr>
+                <tr>
+                    <td>Campaign 2</td>
+                    <td>20</td>
+                    <td class="icon"><a href="{% url 'manageDripCampaignedit' %}"><i class="fas fa-edit edit-icon"></i></a></td>
+                    <td class="icon"><i class="fas fa-trash-alt delete-icon"></i></td>
+                </tr>
+                <tr>
+                    <td>Campaign 3</td>
+                    <td>30</td>
+                    <td class="icon"><a href="{% url 'manageDripCampaignedit' %}"><i class="fas fa-edit edit-icon"></i></a></td>
+                    <td class="icon"><i class="fas fa-trash-alt delete-icon"></i></td>
+                </tr>
+                <tr>
+                    <td>Campaign 4</td>
+                    <td>40</td>
+                    <td class="icon"><a href="{% url 'manageDripCampaignedit' %}"><i class="fas fa-edit edit-icon"></i></a></td>
+                    <td class="icon"><i class="fas fa-trash-alt delete-icon"></i></td>
+                </tr>
+                <tr>
+                    <td>Campaign 5</td>
+                    <td>50</td>
+                    <td class="icon"><a href="{% url 'manageDripCampaignedit' %}"><i class="fas fa-edit edit-icon"></i></a></td>
+                    <td class="icon"><i class="fas fa-trash-alt delete-icon"></i></td>
+                </tr>
+                <tr>
+                    <td>Campaign 6</td>
+                    <td>60</td>
+                    <td class="icon"><a href="{% url 'manageDripCampaignedit' %}"><i class="fas fa-edit edit-icon"></i></a></td>
+                    <td class="icon"><i class="fas fa-trash-alt delete-icon"></i></td>
+                </tr>
+                <tr>
+                    <td>Campaign 7</td>
+                    <td>70</td>
+                    <td class="icon"><a href="{% url 'manageDripCampaignedit' %}"><i class="fas fa-edit edit-icon"></i></a></td>
+                    <td class="icon"><i class="fas fa-trash-alt delete-icon"></i></td>
+                </tr>
+                <tr>
+                    <td>Campaign 8</td>
+                    <td>80</td>
+                    <td class="icon"><a href="{% url 'manageDripCampaignedit' %}"><i class="fas fa-edit edit-icon"></i></a></td>
+                    <td class="icon"><i class="fas fa-trash-alt delete-icon"></i></td>
+                </tr>
+                <tr>
+                    <td>Campaign 9</td>
+                    <td>90</td>
+                    <td class="icon"><a href="{% url 'manageDripCampaignedit' %}"><i class="fas fa-edit edit-icon"></i></a></td>
+                    <td class="icon"><i class="fas fa-trash-alt delete-icon"></i></td>
+                </tr>
+                <tr>
+                    <td>Campaign 10</td>
+                    <td>100</td>
+                    <td class="icon"><a href="{% url 'manageDripCampaignedit' %}"><i class="fas fa-edit edit-icon"></i></a></td>
+                    <td class="icon"><i class="fas fa-trash-alt delete-icon"></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tableBody = document.getElementById('campaignTableBody');
+
+
+            // Delete functionality
+            tableBody.addEventListener('click', function(event) {
+                if (event.target.classList.contains('delete-icon')) {
+                    const row = event.target.closest('tr');
+                    if (confirm('Are you sure you want to delete this campaign?')) {
+                        row.remove();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+{% endblock bussiness_content %}

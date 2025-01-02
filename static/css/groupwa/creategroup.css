@@ -1,0 +1,158 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f0f0f0 !important;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 75vh;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.card {
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+.group-form {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+}
+.card-header h4 {
+    font-size: 1.25rem; /* Smaller font size for header */
+    font-weight: bold;
+    color: #1d2dbd; /* Consistent color format */
+}
+.heading {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(83, 33, 234);
+}
+
+.form-row {
+    margin-bottom: 15px;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+    width: 100%;
+}
+
+input[type="text"] {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px; 
+}
+
+input[type="text"]:focus {
+    border-color: 0 0 0.1px #007bff;
+    /* Change border color on focus */
+    box-shadow: 0 0 0.2px rgba(0, 123, 255, 0.5);
+    /* Add box shadow on focus */
+}
+.btn {
+    margin-top: 10px;
+    background-color: #4CAF50 !important;
+    border-color: #4CAF50 !important;
+    color: #000 !important;
+    transition: color 0.3s; /* Add transition for smooth color change */
+}
+
+.btn:hover {
+    color: #fff !important; /* Change text color to white on hover */
+}
+
+.card .form-row button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1em;
+}
+.card .alert {
+    margin-top: 10px;
+}
+
+@media only screen and (max-width: 767px) {
+    body,
+    html {
+        height: 100%;
+        width: 100%;
+        margin-left: -60px;
+        margin-right: -20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .heading {
+        font-size: 20px;
+    }
+    label {
+        display: block;
+        font-weight: 14px;
+        font-size: 13px;
+        margin-bottom: 5px;
+        color: rgb(88, 78, 78);
+    }
+    button {
+        padding: 7px 12px;
+        background-color: DodgerBlue;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 15px;
+    }
+    button:hover {
+        background-color: #ebdede;
+        color: black;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    body,
+    html {
+        height: 100%;
+        width: 100%;
+        margin-top: -70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .heading {
+        font-size: 20px;
+    }
+    label {
+        display: block;
+        font-weight: 14px;
+        font-size: 12px;
+        margin-bottom: 3px;
+    }
+    button {
+        padding: 7px 12px;
+        background-color: DodgerBlue;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 13px;
+    }
+    button:hover {
+        background-color: #ebdede;
+        color: black;
+    }
+}

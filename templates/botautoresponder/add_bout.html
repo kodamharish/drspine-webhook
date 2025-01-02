@@ -1,0 +1,100 @@
+{% extends 'app_template/bussiness.html' %}
+{% load static %}
+
+{% block title %} add-bout {% endblock %}
+
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/botautoresponder/add_bout.css' %}">
+{% endblock %}
+
+{% block bussiness_content %}
+<div class="container">
+    <form id="autoresponderForm">
+        <section class="p1">
+            <p>Add Bot Autoresponder for <span>919008949782</span></p>
+        </section>
+        <section class="key-message-box">
+            <div class="input-row">
+                <label for="keyword">Keyword :</label>
+                <input type="text" id="keyword" name="keyword" required>
+            </div>
+            <div class="input-row">
+                <label for="messagebox">Autoresponder Message :</label>
+                <textarea id="messagebox" name="messagebox" rows="4" required></textarea>
+            </div>
+        </section>
+        <div class="text">
+            <p> Use <span class="red-text"><pfname></pfname> to use their Profile name</span></p>
+        </div>
+        <div class="buttons-parah">
+            <p>More than 3 Buttons Filled will be shown as List</p>
+        </div>
+        <div class="container1">
+            <div class="row">
+                <div class="buttons col-12 col-md-6">Button 1: <input type="text" name="button1" id="button1" required></div>
+                <div class="buttons col-12 col-md-6">Button 2: <input type="text" name="button2" id="button2" required></div>
+                <div class="buttons col-12 col-md-6">Button 3: <input type="text" name="button3" id="button3" required></div>
+                <div class="buttons col-12 col-md-6">Button 4: <input type="text" name="button4" id="button4" required></div>
+                <div class="buttons col-12 col-md-6">Button 5: <input type="text" name="button5" id="button5" required></div>
+                <div class="buttons col-12 col-md-6">Button 6: <input type="text" name="button6" id="button6" required></div>
+                <div class="buttons col-12 col-md-6">Button 7: <input type="text" name="button7" id="button7" required></div>
+                <div class="buttons col-12 col-md-6">Button 8: <input type="text" name="button8" id="button8" required></div>
+                <div class="buttons col-12 col-md-6">Button 9: <input type="text" name="button9" id="button9" required></div>
+                <div class="buttons col-12 col-md-6">Button 10: <input type="text" name="button10" id="button10" required></div>
+            </div>
+        </div>
+        <section class="input-container-group">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="input-container">
+                        <label for="headerType">Header Type: <span>(Select only if required)</span></label>
+                        <select id="headerType" name="headerType" class="form-control" required>
+                            <option value="">Select</option>
+                            <option value="header1">Header 1</option>
+                            <option value="header2">Header 2</option>
+                            <option value="header3">Header 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-container">
+                        <label for="fileInput" class="file-text">Upload File:</label>
+                        <input type="file" id="fileInput" name="fileInput" class="form-control" accept="image/*,application/pdf" required>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <button class="btn btn-primary mb-3" type="submit" id="createButton">Add Bot AutoResponder</button>
+    </form>
+</div>
+<script>
+    document.getElementById('autoresponderForm').addEventListener('submit', function(event) {
+        let isValid = true;
+
+        // Validation for all fields
+        const fields = document.querySelectorAll('#autoresponderForm input, #autoresponderForm textarea, #autoresponderForm select');
+        fields.forEach(field => {
+            if (!field.value.trim()) {
+                isValid = false;
+                field.classList.add('is-invalid'); // Adding a class for styling invalid fields
+            } else {
+                field.classList.remove('is-invalid');
+            }
+        });
+
+        if (!isValid) {
+            event.preventDefault(); // Prevent form submission
+        }
+    });
+
+    // Remove 'is-invalid' class when the user starts typing
+    document.querySelectorAll('#autoresponderForm input, #autoresponderForm textarea, #autoresponderForm select').forEach(field => {
+        field.addEventListener('input', function() {
+            if (this.value.trim()) {
+                this.classList.remove('is-invalid');
+            }
+        });
+    });
+</script>
+{% endblock bussiness_content %}

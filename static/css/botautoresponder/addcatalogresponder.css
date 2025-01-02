@@ -1,0 +1,53 @@
+body{
+    background-color: #f0f0f0 !important;
+}
+
+.form-container {
+    max-width: 400px;   
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 8px;
+    margin-left:250px !important;
+    width:40%;
+}
+
+.form-container .text-center {
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(83, 33, 234);
+}
+.text-center span{
+    color: #008000;
+}
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+    width: 100%;
+} 
+
+.form-group input[type="date"],
+.form-group select {
+    display: left;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 100%; 
+}
+
+.btn {
+    margin-top: 30px;
+    background-color: #4CAF50 !important;
+    border-color: #4CAF50 !important;
+    color: #000 !important;
+    transition: color 0.3s; /* Add transition for smooth color change */
+}
+
+.btn:hover {
+    color: #fff !important; /* Change text color to white on hover */
+}

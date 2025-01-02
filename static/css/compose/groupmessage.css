@@ -1,0 +1,110 @@
+body {
+    background-color: #f0f0f0 !important;
+}
+.header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(83, 33, 234) !important;
+    margin-bottom: 20px; /* Adjusted margin */
+    padding-bottom: 10px; /* Reduced padding */
+    border-bottom: 2px solid #0f5311;
+    position: relative;
+}
+.header span {
+    color: #008000;
+}
+.content-body {
+    margin-bottom: 20px;
+}
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+.form-control-file {
+    margin-top: 5px;
+}
+textarea.form-control {
+    resize: vertical;
+    min-height: 100px;
+}
+.click-actions span {
+    display: block;
+    color: #007bff;
+    margin-top: 10px;
+}
+.content-text {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 10px;
+}
+.btn {
+    margin-top: 20px;
+    background-color: #4CAF50 !important;
+    border-color: #4CAF50 !important;
+    color: #000 !important;
+    transition: color 0.3s; /* Add transition for smooth color change */
+}
+.btn:hover {
+    color: #fff !important; /* Change text color to white on hover */
+}
+@media (max-width: 768px) {
+    .content {
+        padding: 20px;
+    }
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+.card {
+    width: 50%;
+    max-width: 600px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #fff;
+    margin: 20px 0;
+}
+@media (max-width: 767px) {
+    .card {
+        width: 90%;
+    }
+    .form-control,
+    .form-label {
+        font-size: 14px;
+        padding: 10px;
+    }
+    .button-container {
+        padding-top: 5px; 
+        padding-bottom: 5px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .card {
+        width: 70%;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+    .card {
+        width: 60%;
+    }
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.content-body5 {
+    margin-bottom: 15px;
+}

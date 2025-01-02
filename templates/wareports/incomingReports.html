@@ -1,0 +1,73 @@
+{% extends 'app_template/bussiness.html'%}
+
+{% load static %}
+
+{% block title %} WA Business Incoming Reports {% endblock %}
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/wareports/incoming.css'%}">
+{% endblock %}
+
+{% block bussiness_content %}
+<div class="container">
+    <p class="heading-1">WA Business Incoming Reports</p>
+    <p class="heading-2">This shows Incoming WA Reports.</p>
+    <form id="waReportForm">
+        <div class="input-group">
+            <label for="fromDate">From Date :</label>
+            <input type="date" class="form-control" id="fromDate" name="fromDate" placeholder="MM/DD/YYYY">
+            <p id="fromDateError" class="error-message"></p>
+        </div>
+        <div class="input-group">
+            <label for="toDate">To Date :</label>
+            <input type="date" class="form-control" id="toDate" name="toDate" placeholder="MM/DD/YYYY">
+            <p id="toDateError" class="error-message"></p>
+        </div>
+        <div class="input-group">
+            <label for="waNumber">Select WA Business Number :</label>
+            <select id="waNumber" name="waNumber" class="form-control mr-2">
+                <option value="">Select a WA Number</option>
+                <option value="wa1">WA Number 1</option>
+                <option value="wa2">WA Number 2</option>
+                <option value="wa3">WA Number 3</option>
+            </select>
+            <br/>
+            <p id="waNumberError" class="error-message"></p>
+        </div>
+        <button class="btn btn-primary" type="submit">Get WA Incoming Reports</button>
+    </form>
+</div>
+<script>
+    document.getElementById('waReportForm').addEventListener('submit', function(event) {
+        let isValid = true;
+
+        // Clear previous error messages
+        document.getElementById('fromDateError').textContent = '';
+        document.getElementById('toDateError').textContent = '';
+        document.getElementById('waNumberError').textContent = '';
+
+        const fromDate = document.getElementById('fromDate').value.trim();
+        const toDate = document.getElementById('toDate').value.trim();
+        const waNumber = document.getElementById('waNumber').value.trim();
+
+        if (fromDate === "") {
+            isValid = false;
+            document.getElementById('fromDateError').textContent = 'Please select a From Date.';
+        }
+
+        if (toDate === "") {
+            isValid = false;
+            document.getElementById('toDateError').textContent = 'Please select a To Date.';
+        }
+
+        if (waNumber === "") {
+            isValid = false;
+            document.getElementById('waNumberError').textContent = 'Please select a WA Business Number.';
+        }
+
+        if (!isValid) {
+            event.preventDefault(); // Prevent form submission
+        }
+    });
+</script>
+{% endblock bussiness_content %}

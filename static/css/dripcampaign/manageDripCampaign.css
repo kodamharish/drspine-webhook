@@ -1,0 +1,58 @@
+body{
+    background-color: #f0f0f0 !important;
+}
+.table-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 60% !important;
+    margin-left:250px !important;
+    font-family: 'Roboto', sans-serif;
+    
+   
+}
+table {
+    width: 100% !important;
+    border-spacing: 0 !important;
+    border: 0.1px solid rgb(117, 110, 110) !important;
+    border-radius: 10px !important;
+    border-collapse:separate !important;
+}
+thead th {
+    background-color: #4d63f6 !important;
+    font-weight: bold !important;
+    color: whitesmoke;
+}
+td, th {
+    padding: 10px;
+    border: 0.1px solid rgb(117, 110, 110) !important ;
+}
+
+.icon {
+    cursor: pointer;
+}
+.icon:hover {
+    color: #007bff !important;
+}
+/* To ensure the border-radius applies correctly */
+table thead th:first-child {
+    border-top-left-radius: 10px;
+}
+table thead th:last-child {
+    border-top-right-radius: 10px;
+}
+table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+@media (max-width: 540px) {
+.table-container {
+margin-left: 40px;
+}
+
+}

@@ -1,0 +1,70 @@
+{% extends 'app_template/bussiness.html'%}
+{% load static %}
+{% block title %} Add Bot Responder to Campaign {% endblock %}
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/dripcampaign/addbrtodrip.css' %}">
+{% endblock %}
+
+
+{% block bussiness_content %}
+<div class="container">
+    <h1>Add Bot Responder to Campaign for <span>919008949782</span></h1>
+    <form class="campaign" id="botCampaignForm" method="post">
+        {% csrf_token %}
+        <div>
+            <div class="form-group">
+                <label for="bot-responder">Bot Responder:</label>
+                <select id="bot-responder" name="bot-responder" required>
+                    <option value="" disabled selected>Select Bot Responder</option>
+                    <!-- Add options here -->
+                    <option value="responder1">Responder 1</option>
+                    <option value="responder2">Responder 2</option>
+                </select>
+            </div>
+            <span id="bot-responder-error" class="error">Please select a bot responder.</span>
+            <div>
+                <div class="form-group">
+                    <label for="campaign-name">Campaign Name:</label>
+                    <select id="campaign-name" name="campaign-name" required>
+                        <option value="" disabled selected>Select Campaign</option>
+                        <!-- Add options here -->
+                        <option value="campaign1">Campaign 1</option>
+                        <option value="campaign2">Campaign 2</option>
+                    </select>
+                </div>
+                <span id="campaign-name-error" class="error">Please select a campaign name.</span>
+            </div>
+            <button type="submit">Add Bot Responder to Campaign</button>
+        </div>
+    </form>
+</div>
+<script>
+    document.getElementById('bot-campaign-form').addEventListener('submit', function(event) {
+        let isValid = true;
+
+        const botResponder = document.getElementById('bot-responder');
+        const botResponderError = document.getElementById('bot-responder-error');
+        if (botResponder.value === "") {
+            botResponderError.style.display = 'inline';
+            isValid = false;
+        } else {
+            botResponderError.style.display = 'none';
+        }
+
+        const campaignName = document.getElementById('campaign-name');
+        const campaignNameError = document.getElementById('campaign-name-error');
+        if (campaignName.value === "") {
+            campaignNameError.style.display = 'inline';
+            isValid = false;
+        } else {
+            campaignNameError.style.display = 'none';
+        }
+
+        if (!isValid) {
+            event.preventDefault();
+        }
+    });
+</script>
+</body>
+{% endblock bussiness_content %}

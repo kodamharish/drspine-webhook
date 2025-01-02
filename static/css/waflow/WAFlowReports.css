@@ -1,0 +1,93 @@
+body {
+    background-color: #f0f0f0 !important;
+}
+.container {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    margin-left: 250px !important;
+    width: 40% !important;
+}
+
+.container .heading-1 {
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(83, 33, 234);
+}
+
+.container .heading-2 {
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #666;
+}
+
+.container label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+    width: 100%;
+}
+
+.form-control,
+.form-select {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px; / /* Added to include padding and border in width */
+}
+
+
+.btn-container {
+    display: flex;
+    margin-top: 20px; /* Adjusted margin for better spacing */
+}
+
+.btn-container button {
+    padding: 10px 20px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #4CAF50 !important;
+    border-color: #4CAF50 !important;
+    color: #000 !important;
+    transition: color 0.3s; /
+}
+
+.btn-container button:hover {
+    color: #fff !important;
+     /* Change text color to white on hover */
+}
+
+
+.keyword {
+    display: flex;
+    flex-direction: column; /* Adjusted to column for better mobile layout */
+}
+
+.keyword>div {
+    margin-bottom: 15px; /* Adjusted margin for better spacing */
+}
+
+.keyword .flow{
+    margin-left:15px;
+}
+
+@media (min-width: 768px) {
+    .keyword {
+        flex-direction: row; /* Adjusted to row for larger screens */
+        justify-content: space-between; /* Adjusted to evenly space elements */
+    }
+
+    .keyword>div {
+        flex: 1;
+        margin-bottom: 0; /* Removed margin for better spacing */
+    }
+}

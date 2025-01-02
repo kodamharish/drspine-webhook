@@ -1,0 +1,48 @@
+{% extends 'app_template/bussiness.html' %}
+
+{% load static %}
+
+{% block title %} dynamic_title{% endblock %}
+
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/compose/single.css' %}">
+{% endblock styles %}
+
+{% block bussiness_content %}
+<div class="container">
+    <div class="card mt-4">
+        <div class="card-header">
+            Compose Dynamic SMS for WA <span>919008949782</span>
+        </div>
+        <div class="card-body">
+            <form id="dynamicMessageForm" method="GET">
+                <div class="form-group">
+                    <label for="templateSelect">Select template to proceed:</label>
+                    <select class="form-select" id="templateSelect" name="template" required>
+                        <option value="">Choose...</option>
+                        {% for template in templates %}
+                            <option value="{{ template.id }}">{{ template.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button class="btn btn-primary mt-3" type="submit" id="addKeywordButton">Send Message</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('dynamicMessageForm').addEventListener('submit', function(event) {
+        var selectElement = document.getElementById('templateSelect');
+        if (selectElement.value === '') {
+            event.preventDefault();
+            alert('Please select a template before proceeding.');
+        } else {
+            var templateId = selectElement.value;
+            var formAction = `/bussiness/dynamic/message/${templateId}`;
+            this.action = formAction;
+        }
+    });
+    </script>
+{% endblock bussiness_content %}

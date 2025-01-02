@@ -1,0 +1,140 @@
+{% extends 'app_template/bussiness.html' %}
+
+{% load static %}
+
+{% block title %} Whatsapp Add Template {% endblock %}
+
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/templateswa/addwa.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block bussiness_content %}
+<div class="container">
+    <div class="card">
+        <div class="card-header text-center">
+            <h4>Create Whastapp<span class="text-success"> Template</span></h4>
+        </div>
+        <div class="card-body">
+            <form action="{% url 'CreateTemplate' %}" method="POST" id="waTemplateForm">
+                {% csrf_token %}
+                <div class="form-group mb-2">
+                    <label for="name">Template Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                    <small id="nameError" class="text-danger">{{ errors.name }}</small>
+                </div>
+                <div class="alert alert-info">
+                    <strong>Sample template name:</strong> hello_world<br> 
+                    Template name should be unique and contain only lowercase letters and underscores.
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group mb-2">
+                            <label for="language">Language:</label>
+                            <select class="form-control" id="language" name="language" required>
+                                <option value="">Choose...</option>
+                                <option value="English">English</option>
+                                <!-- Other languages can be added here -->
+                            </select>
+                            <small id="languageError" class="text-danger">{{ errors.language }}</small>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group mb-2">
+                            <label for="category">Category:</label>
+                            <select class="form-control" id="category" name="category" required>
+                                <option value="">Choose...</option>
+                                <option value="Authentication">Authentication</option>
+                                <option value="Marketing">Marketing</option>
+                                <option value="Utility">Utility</option>
+                            </select>
+                            <small id="categoryError" class="text-danger">{{ errors.category }}</small>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group mb-2">
+                            <label for="template_type">Template Type:</label>
+                            <select class="form-control" id="template_type" name="template_type" required>
+                                <option value="">Choose...</option>
+                                <option value="text">Text</option>
+                                <option value="text_image">Text+Image</option>
+                                <option value="text_variable">Text+Variable</option>
+                                <option value="text_video">Text+Video</option>
+                                <option value="text_document">Text+Document</option>
+                                <option value="text_button">Text+Button</option>
+                                <option value="text_button_image">Text+Button+Image</option>
+                                <option value="text_button_video">Text+Button+Video</option>
+                                <option value="text_button_document">Text+Button+Document</option>
+                                <option value="carousel">Carousel</option>
+                            </select>
+                            <small id="templateTypeError" class="text-danger">{{ errors.template_type }}</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group mb-2">
+                    <label for="message">Template Message:</label>
+                    <textarea name="message" id="message" class="form-control" rows="5" required></textarea>
+                    <small id="messageError" class="text-danger">{{ errors.message }}</small>
+                    <div class="alert alert-warning">
+                        <strong>Example Template:</strong> Thank You for registration. Welcome to {1}. Your login details username: {2}, Password: {3}
+                        <br><br>
+                        NOTE: AFTER ADDING TEMPLATE HERE, PLEASE GET THE APPROVAL FROM SUPPORT. MESSAGE WILL NOT GET DELIVERED IF THE TEMPLATE IS NOT APPROVED BY SUPPORT.
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary" type="submit">Add Template</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    document.getElementById('waTemplateForm').addEventListener('submit', function(event) {
+        let isValid = true;
+
+        // Clear previous error messages
+        document.getElementById('nameError').textContent = '';
+        document.getElementById('languageError').textContent = '';
+        document.getElementById('categoryError').textContent = '';
+        document.getElementById('templateTypeError').textContent = '';
+        document.getElementById('messageError').textContent = '';
+
+        const name = document.getElementById('name').value.trim();
+        const language = document.getElementById('language').value.trim();
+        the category = document.getElementById('category').value.trim();
+        const templateType = document.getElementById('template_type').value.trim();
+        the message = document.getElementById('message').value.trim();
+
+        if (name === "") {
+            isValid = false;
+            document.getElementById('nameError').textContent = 'Please enter a template name.';
+        }
+
+        if (language === "") {
+            isValid = false;
+            document.getElementById('languageError').textContent = 'Please select a language.';
+        }
+
+        if (category === "") {
+            isValid = false;
+            document.getElementById('categoryError').textContent = 'Please select a category.';
+        }
+
+        if (templateType === "") {
+            isValid = false;
+            document.getElementById('templateTypeError').textContent = 'Please select a template type.';
+        }
+
+        if (message === "") {
+            isValid = false;
+            document.getElementById('messageError').textContent = 'Please enter a template message.';
+        }
+
+        if (!isValid) {
+            event.preventDefault(); // Prevent form submission
+        }
+    });
+</script>
+
+{% endblock bussiness_content %}

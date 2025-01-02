@@ -1,0 +1,57 @@
+body {
+    background-color: #f0f0f0 !important;
+    overflow-y: auto;
+}
+
+.container {
+    padding: 5px !important; /* Further reduced padding */
+}
+
+.card {
+    width: 100%;
+    padding: 10px; /* Further reduced padding */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.card-header h4 {
+    font-size: 1.25rem; /* Smaller font size for header */
+    font-weight: bold;
+    color: #1d2dbd; /* Consistent color format */
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 0.25rem; /* Reduced margin */
+}
+
+.form-group small {
+    display: block;
+    margin-top: 0.25rem; /* Reduced margin */
+}
+
+.form-control, select.form-control {
+    height: 32px; /* Further reduced height */
+    padding: 4px 8px; /* Further reduced padding */
+    font-size: 0.875rem; /* Smaller font size */
+}
+
+textarea.form-control {
+    resize: vertical;
+    height: 80px; /* Further reduced height */
+    padding: 4px 8px; /* Reduced padding */
+}
+
+.btn {
+    margin-top: 8px; /* Reduced margin */
+    width: 140px; /* Further reduced width */
+    padding: 6px 0; /* Reduced padding */
+    font-size: 0.875rem; /* Smaller font size */
+}
+
+.alert {
+    padding: 4px 8px; /* Reduced padding */
+    margin-bottom: 8px; /* Reduced margin bottom */
+    font-size: 0.875rem; /* Smaller font size */
+}

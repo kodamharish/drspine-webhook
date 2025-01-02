@@ -1,0 +1,78 @@
+body {
+    background-color: #f0f0f0 !important;
+}
+
+.container {
+    max-width: 400px;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    margin-left: 250px !important;
+}
+
+.container .heading-1 {
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(83, 33, 234);
+}
+
+.container .heading-2 {
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #666;
+}
+
+.container label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+    width: 100%;
+}
+
+.container input[type="date"],
+.container select {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px; /* Ensure there's space between the input and the error message */
+}
+
+.container .btn-container button:hover {
+    background-color: #0056b3;
+}
+
+#waNumber {
+    border-radius: 4px;
+}
+
+.container .input-group {
+    width: 40% !important;
+    margin-bottom: 15px !important;
+    
+}
+
+.btn {
+    margin-top: 10px;
+    background-color: #4CAF50 !important;
+    border-color: #4CAF50 !important;
+    color: #000 !important;
+    transition: color 0.3s; /* Add transition for smooth color change */
+}
+
+.btn:hover {
+    color: #fff !important; /* Change text color to white on hover */
+}
+
+.error-message {
+    color: red!important;
+    margin-top: 5px !important; /* Adjust the positioning of the error message */
+    font-size: 14px;
+   display: block;
+   margin-top: 0;
+}

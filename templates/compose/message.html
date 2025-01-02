@@ -1,0 +1,107 @@
+{% extends 'app_template/bussiness.html' %}
+
+{% load static %}
+
+{% block title %}Send Message{% endblock %}
+
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/templateswa/addwa.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block bussiness_content %}
+<div class="container">
+    <div class="card">
+        <div class="card-header text-center">
+            <h4>Send<span class="text-success"> Single Message</span></h4>
+        </div>
+        <div class="card-body">
+            <form id="sendMessageForm" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="templateName" class="form-label"><b>Template Name:</b></label>
+                        <select class="form-select" id="templateSelect" name="template" required>
+                            <option value="">Choose...</option>
+                            {% for template in templates %}
+                                <option value="{{ template.name }}">{{ template.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="templateType" class="form-label"><b>Template Type:</b></label>
+                        <input type="text" class="form-control" id="templateType" name="templateType" readonly>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="templateMessage" class="form-label"><b>Template Message:</b></label>
+                    <textarea class="form-control" id="templateMessage" name="templateMessage" style="height: 150px;" readonly></textarea>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="templateVariable" class="form-label"><b>Template Variable:</b></label>
+                        <input type="text" class="form-control" id="templateVariable" name="template_variable">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="uploadFile" class="form-label"><b>Upload Media File:</b></label>
+                        <input type="file" class="form-control" id="uploadFile" name="uploadFile" accept="image/*,video/*">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="mobilenumber" class="form-label"><b>Mobile Number:</b></label>
+                        <input type="number" class="form-control" id="mobilenumber" name="mobile_number" placeholder="8745215524" min="0" required> 
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var templates = [
+            {% for template in templates %}
+                {
+                    name: "{{ template.name }}",
+                    template_type: "{{ template.template_type }}",
+                    message: "{{ template.message|escapejs }}"
+                },
+            {% endfor %}
+        ];
+
+        var templateSelect = document.getElementById('templateSelect');
+        var templateTypeInput = document.getElementById('templateType');
+        var templateMessageTextarea = document.getElementById('templateMessage');
+
+        templateSelect.addEventListener('change', function() {
+            var selectedTemplateName = templateSelect.value;
+
+            if (selectedTemplateName) {
+                var selectedTemplate = templates.find(function(template) {
+                    return template.name === selectedTemplateName;
+                });
+
+                if (selectedTemplate) {
+                    templateTypeInput.value = selectedTemplate.template_type;
+                    templateMessageTextarea.value = selectedTemplate.message;
+                } else {
+                    // Clear fields if template not found
+                    templateTypeInput.value = '';
+                    templateMessageTextarea.value = '';
+                }
+            } else {
+                // Clear fields if no template selected
+                templateTypeInput.value = '';
+                templateMessageTextarea.value = '';
+            }
+        });
+    });
+</script>
+
+
+{% endblock bussiness_content %}

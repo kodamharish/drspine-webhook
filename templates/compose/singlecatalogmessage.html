@@ -1,0 +1,64 @@
+{% extends 'app_template/bussiness.html' %}
+{% load static %}
+
+{% block title %}Single Catalog{% endblock %}
+
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/compose/singlecatalogmessage.css' %}">
+{% endblock styles %}
+
+{% block bussiness_content %}
+<div class="container">
+    <div class="custom-card">
+        <div class="custom-card-header">
+            <span>919008949782</span>
+        </div>
+        <form class="custom-form">
+            <div class="custom-form-group">
+                <label for="templateName"><b>Template Name</b></label>
+                <input type="text" class="custom-form-control" id="templateName" name="templateName" placeholder="Inquiry" value="{{ temp.name }}">
+            </div>
+            <div class="custom-form-group">
+                <label for="templateType"><b>Template Type</b></label>
+                <input type="text" class="custom-form-control" id="templateType" name="templateType" placeholder="Text+Button+Document" value="{{ temp.template_type }}">
+            </div>
+            <div class="custom-form-group">
+                <label for="clickToActions"><b>Click to Actions</b></label>
+                <a href="https://rzp.io/l/ownyourvoice" target="_blank" class="custom-link">https://rzp.io/l/ownyourvoice</a>
+            </div>
+            <div class="custom-form-group">
+                <label for="uploadFile"><b>Upload File</b></label>
+                <input type="file" class="custom-form-control-file" id="uploadFile" name="uploadFile">
+            </div>
+            <div class="custom-form-group">
+                <label for="templateMessage"><b>Template Message</b></label>
+                <textarea class="custom-form-control" id="templateMessage" name="templateMessage" placeholder="Do you struggle to share your views with authority?">{{ temp.message }}</textarea>
+            </div>
+            <div class="custom-form-group">
+                <label for="product"><b>Select product</b></label>
+                <select class="custom-form-select" id="product" name="product">
+                    <option value="template1">Template 1</option>
+                    <option value="template2">Template 2</option>
+                    <option value="template3">Template 3</option>
+                </select>
+            </div>
+            <div class="custom-form-group">
+                <label for="Cataloghead"><b>Catalog Header</b></label>
+                <input type="text" class="custom-form-control" id="Cataloghead" name="Cataloghead">
+            </div>
+            <div class="custom-form-group">
+                <label for="Catalogbody"><b>Catalog Body</b></label>
+                <input type="text" class="custom-form-control" id="Catalogbody" name="Catalogbody">
+            </div>
+            <div class="custom-form-group">
+                <label for="phoneNumbers"><b>Phone Numbers (without 91)</b></label>
+                <input type="text" class="custom-form-control" id="phoneNumbers" name="phoneNumbers">
+            </div>
+            <div class="button-container">
+                <button type="submit" class="btn btn-green">Send single WA</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

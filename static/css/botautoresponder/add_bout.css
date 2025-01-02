@@ -1,0 +1,130 @@
+body {
+        background-color: #f0f0f0 !important;
+        width: 80%;
+
+    }
+
+.container {
+        margin: 20px auto;
+        padding: 0px;
+        border-radius: 8px;
+        margin-left: 170px !important;
+       
+    
+}
+.container .p1 {
+        text-align: left;
+        margin-bottom: 20px;
+        font-size: 24px;
+        font-weight: bold;
+        color: rgb(83, 33, 234);
+}
+.p1 span {
+        color: green;
+        font-weight: bold;
+        font-size: 24px;
+}
+.key-message-box {
+        width: 100%;
+        margin: 0px auto;
+        padding: 6px;
+        border-radius: 8px;
+}
+.input-row {
+        margin-bottom: 20px;
+}
+
+label {
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #333;
+        width: 100%;
+        display: block;
+        text-align: left;        
+}
+.input-row input[type="text"],
+.input-row textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+}
+.input-row input[type="text"]:focus,
+.input-row textarea:focus {
+        border-color: #436b96;
+        outline: none;
+}
+.container .text {
+        text-align: center;
+        font-size: large;
+        font-weight: bold;
+        color: rgb(128, 121, 121);
+}
+.container .text .red-text {
+        color: rgb(216, 129, 129);
+}
+.container .text p {
+        margin-top: 2px;
+}
+.buttons-parah p {
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        color: rgb(107, 64, 206);
+}
+.buttons {
+        padding: 2px;
+        border-radius: 4px;
+        margin-bottom: 3px;
+        font-weight: bold;
+        color: #333;
+}
+.buttons input[type="text"] {
+        width: calc(100% - 10px);
+        padding: 6px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+}
+.buttons input[type="text"]:focus {
+        outline: none;
+        border-color: #9aadc2;
+}
+.input-container-group {
+        margin-bottom: 10px;
+        
+}
+.input-container {
+        margin-bottom: 10px;
+}
+.input-container label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        margin-top: 5px;
+       
+}
+.input-container select,
+.input-container input[type="url"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+}
+.input-container input[type="url"]:focus {
+        border-color: #007bff;
+        /* Focus border color */
+        outline: none;
+}
+
+.btn {
+        background-color: #4CAF50 !important;
+        border-color: #4CAF50 !important;
+        color: #000 !important;
+        transition: color 0.3s; /* Add transition for smooth color change */
+    }
+    
+    .btn:hover {
+        color: #fff !important; /* Change text color to white on hover */
+    }

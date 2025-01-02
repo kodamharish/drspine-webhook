@@ -1,0 +1,88 @@
+{% extends 'app_template/bussiness.html'%}
+
+{% load static %}
+
+{% block title %} Add Keyword to flow {% endblock %}
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/waflow/addkeywordtoflow.css' %}">
+{% endblock %}
+
+
+{% block bussiness_content %}
+<div class="container">
+    <h1>Add Keyword for <span>919008949782</span></h1>
+    <form id="keywordForm" novalidate>
+        <div class="mb-3 add">
+            <label for="keywordInput" class="form-label key">Add Keyword:</label>
+            <input type="text" id="keywordInput" class="form-control" />
+            <div class="invalid-feedback" id="keywordError">Please enter a keyword.</div>
+        </div>
+        <div class="keyword">
+            <div class="type mb-3 add">
+                <label for="keywordMatchingType" class="form-label">Keyword Matching Type:</label>
+                <select id="keywordMatchingType" class="form-select">
+                    <option selected disabled value="">Choose...</option>
+                    <option value="Exact">Exact</option>
+                    <option value="Phrase">Phrase</option>
+                    <option value="Broad">Broad</option>
+                    <option value="Negative">Negative</option>
+                    <option value="Broad Match Modifier">Broad Match Modifier</option>
+                </select>
+                <div class="invalid-feedback" id="matchingTypeError">Please select a keyword matching type.</div>
+            </div>
+        </div>
+        <div>
+            <div class="flow mb-3 add">
+                <label for="selectFlow" class="form-label form-label-1">Select Flow:</label>
+                <select id="selectFlow" class="form-select form-select-1">
+                    <option selected disabled value="">Choose...</option>
+                    <option value="Flow 1">Flow 1</option>
+                    <option value="Flow 2">Flow 2</option>
+                    <option value="Flow 3">Flow 3</option>
+                    <option value="Flow 4">Flow 4</option>
+                    <option value="Flow 5">Flow 5</option>
+                </select>
+                <div class="invalid-feedback" id="flowError">Please select a flow.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary mb-3" type="submit" id="addKeywordButton">Add Flow</button>
+        </div>
+    </form>
+</div>
+
+<!-- Custom JS -->
+<script>
+    document.getElementById('keywordForm').addEventListener('submit', function(event) {
+        let isValid = true;
+
+        // Clear previous error messages
+        document.getElementById('keywordError').style.display = 'none';
+        document.getElementById('matchingTypeError').style.display = 'none';
+        document.getElementById('flowError').style.display = 'none';
+
+        const keywordInput = document.getElementById('keywordInput');
+        if (keywordInput.value.trim() === '') {
+            isValid = false;
+            document.getElementById('keywordError').style.display = 'block';
+        }
+
+        const keywordMatchingType = document.getElementById('keywordMatchingType');
+        if (keywordMatchingType.value === '') {
+            isValid = false;
+            document.getElementById('matchingTypeError').style.display = 'block';
+        }
+
+        const selectFlow = document.getElementById('selectFlow');
+        if (selectFlow.value === '') {
+            isValid = false;
+            document.getElementById('flowError').style.display = 'block';
+        }
+
+        if (!isValid) {
+            event.preventDefault(); // Prevent form submission
+        }
+    });
+</script>
+{% endblock bussiness_content %}

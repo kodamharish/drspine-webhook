@@ -1,0 +1,36 @@
+.table-container {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.table-th th {
+    background-color: #14288c !important;
+    color: white;
+    cursor: pointer; 
+}
+
+.grpName td{
+    font-weight: bold;
+    text-align: center;
+    background-color: #14288c !important;
+    color: rgb(255, 255, 255);
+}
+.search-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.search-container input {
+    width: 200px; 
+}
+
+.delete-icon{
+    color:red;
+    justify-content: end;
+}
+.card-header h4 {
+    font-size: 2rem; /* Smaller font size for header */
+    font-weight: bold;
+    color: #1d2dbd; /* Consistent color format */
+}

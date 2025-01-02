@@ -1,0 +1,212 @@
+{% extends 'app_template/bussiness.html'%}
+
+{% load static %}
+
+{% block title %} livechat new {% endblock %}
+
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/livechat/whatsappchat.css' %}">
+    <style>
+        #livechat-container {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        #livechat-container * {
+            box-sizing: border-box;
+        }
+        #livechat-wrapper {
+            display: flex;
+            height: calc(100vh - 140px); /* Adjust this value if needed */
+            max-width: 1200px;
+            margin: 0 auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        #livechat-sidebar {
+            width: 300px;
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-right: 1px solid #e0e0e0;
+        }
+        #livechat-area {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+        }
+        #livechat-header {
+            padding: 15px 20px;
+            background-color: #f8f8f8;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        #livechat-messages {
+            flex-grow: 1;
+            padding: 20px;
+            background-image: url('https://i.imgur.com/TnNwdvV.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow-y: auto;
+        }
+        #livechat-input {
+            padding: 15px 20px;
+            background-color: #f8f8f8;
+            border-top: 1px solid #e0e0e0;
+        }
+        .livechat-btn-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        .livechat-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .livechat-user-item {
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .livechat-user-item:hover, .livechat-user-item.active {
+            background-color: #e6ffe6;
+        }
+        .livechat-message {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        .livechat-message-content {
+            background-color: #fff;
+            padding: 10px 15px;
+            border-radius: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 70%;
+        }
+        .livechat-message-time {
+            font-size: 0.75rem;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 768px) {
+            #livechat-wrapper {
+                flex-direction: column;
+                height: auto;
+            }
+            #livechat-sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #e0e0e0;
+            }
+            #livechat-area {
+                height: 500px;
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block bussiness_content %}
+<div id="livechat-container">
+    <div id="livechat-wrapper">
+        <div id="livechat-sidebar">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="h5 font-weight-bold">Team Inbox</h2>
+                <button class="btn btn-success livechat-btn-circle">+</button>
+            </div>
+            <div class="mb-4">
+                <input type="text" placeholder="Search here..." class="form-control">
+            </div>
+            <div class="mb-4">
+                <h3 class="h6 font-weight-bold text-muted">DIRECT MESSAGES</h3>
+            </div>
+            <div>
+                <div class="livechat-user-item active d-flex align-items-center">
+                    <div class="livechat-avatar bg-warning text-white">S</div>
+                    <span class="ml-2 flex-grow-1">SMS Service</span>
+                </div>
+                <div class="livechat-user-item d-flex align-items-center">
+                    <div class="livechat-avatar bg-danger text-white">S</div>
+                    <span class="ml-2 flex-grow-1">SUPPORT</span>
+                </div>
+                <div class="livechat-user-item d-flex align-items-center">
+                    <div class="livechat-avatar bg-primary text-white">B</div>
+                    <span class="ml-2 flex-grow-1">Bhash Sms</span>
+                </div>
+                <div class="livechat-user-item d-flex align-items-center">
+                    <div class="livechat-avatar bg-success text-white">Z</div>
+                    <span class="ml-2 flex-grow-1">Zen</span>
+                    <span class="badge badge-secondary">2</span>
+                </div>
+                <div class="livechat-user-item d-flex align-items-center">
+                    <div class="livechat-avatar bg-warning text-white">A</div>
+                    <span class="ml-2 flex-grow-1">Anand</span>
+                    <span class="badge badge-secondary">1</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="livechat-area">
+            <div id="livechat-header">
+                <div class="d-flex align-items-center">
+                    <div class="livechat-avatar bg-warning text-white">S</div>
+                    <div class="ml-2">
+                        <h2 class="h5 font-weight-bold mb-1">SMS Service</h2>
+                        <span class="text-success">Online</span>
+                    </div>
+                </div>
+            </div>
+            <div id="livechat-messages">
+                <div class="livechat-message">
+                    <div class="livechat-avatar bg-warning text-white mr-2">S</div>
+                    <div>
+                        <div class="livechat-message-content">Thanks for contacting Pritam! 🙏</div>
+                        <span class="livechat-message-time">05-03-2024 4:14 PM</span>
+                    </div>
+                </div>
+                <div class="livechat-message">
+                    <div class="livechat-avatar bg-warning text-white mr-2">S</div>
+                    <div>
+                        <div class="livechat-message-content">I want to join</div>
+                        <span class="livechat-message-time">05-03-2024 4:15 PM</span>
+                    </div>
+                </div>
+                <div class="livechat-message">
+                    <div class="livechat-avatar bg-warning text-white mr-2">S</div>
+                    <div>
+                        <div class="livechat-message-content">Speak to us</div>
+                        <span class="livechat-message-time">05-03-2024 4:16 PM</span>
+                    </div>
+                </div>
+            </div>
+            <div id="livechat-input">
+                <div class="d-flex align-items-center">
+                    <input type="text" placeholder="Type your message..." class="form-control flex-grow-1 mr-2">
+                    <button class="btn btn-success">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock bussiness_content %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock scripts %}

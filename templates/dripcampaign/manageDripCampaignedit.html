@@ -1,0 +1,101 @@
+{% extends 'app_template/bussiness.html'%}
+{% load static %}
+
+{% block title %} manageDripCampaign edit {% endblock %}
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/dripcampaign/manageDripCampaignedit.css' %}">
+{% endblock %}
+
+{% block bussiness_content %}
+<div class="edit-table-container">
+    <h2>Campaign Name:<span>{{ campaign_name }}</span></h2>
+    <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+            <tr>
+                <th>MessageID</th>
+                <th>Template</th>
+                <th>Template Type</th>
+                <th>File Name</th>
+                <th>Delay by</th>
+                <th>Time Unit</th>
+                <th>Modify</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody id="campaignTableBody">
+            <tr>
+                <td>1</td>
+                <td>
+                    <select class="form-select">
+                        <option>Select Template</option>
+                        <option>Template 1</option>
+                        <option>Template 2</option>
+                    </select>
+                </td>
+                <td>Type 1</td>
+                <td><input type="text" class="form-control" /></td>
+                <td><input type="number" class="form-control" /></td>
+                <td>
+                    <select class="form-select">
+                        <option>Minutes</option>
+                        <option>Hours</option>
+                        <option>Days</option>
+                    </select>
+                </td>
+                <td class="icon"><i class="fas fa-edit edit-icon"></i></td>
+                <td class="icon"><i class="fas fa-trash-alt delete-icon"></i></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>
+                    <select class="form-select">
+                        <option>Select Template</option>
+                        <option>Template 1</option>
+                        <option>Template 2</option>
+                    </select>
+                </td>
+                <td>Type 2</td>
+                <td><input type="text" class="form-control" /></td>
+                <td><input type="number" class="form-control" /></td>
+                <td>
+                    <select class="form-select">
+                        <option>Minutes</option>
+                        <option>Hours</option>
+                        <option>Days</option>
+                    </select>
+                </td>
+                <td class="icon"><i class="fas fa-edit edit-icon"></i></td>
+                <td class="icon"><i class="fas fa-trash-alt delete-icon"></i></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const editIcons = document.querySelectorAll('.edit-icon');
+        const deleteIcons = document.querySelectorAll('.delete-icon');
+        
+        editIcons.forEach(icon => {
+            icon.addEventListener('click', function () {
+                const row = this.closest('tr');
+                const inputs = row.querySelectorAll('input, select');
+                inputs.forEach(input => {
+                    if (input.disabled) {
+                        input.disabled = false;
+                    } else {
+                        input.disabled = true;
+                    }
+                });
+            });
+        });
+
+        deleteIcons.forEach(icon => {
+            icon.addEventListener('click', function () {
+                const row = this.closest('tr');
+                row.remove();
+            });
+        });
+    });
+</script>
+{% endblock bussiness_content %}

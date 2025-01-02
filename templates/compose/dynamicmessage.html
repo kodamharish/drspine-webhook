@@ -1,0 +1,47 @@
+{% extends 'app_template/bussiness.html' %}
+{% load static %}
+
+{% block title %}dynamic Message{% endblock %}
+
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/compose/dynamicmessage.css' %}">
+{% endblock styles %}
+
+{% block bussiness_content %}
+<div class="container">
+    <div class="card">
+        <h2 class="header">Compose Dynamic WA <span>919008949782</span></h2>
+        <form>
+            <div class="mb-3">
+                <label for="templateName" class="form-label">Template Name:</label>
+                <input type="text" class="form-control" id="templateName" name="templateName" placeholder="Inquiry" value="{{ temp.name }}">
+            </div>
+            <div class="mb-3">
+                <label for="templateType" class="form-label">Template Type:</label>
+                <input type="text" class="form-control" id="templateType" name="templateType" placeholder="Text+Button+Document" value="{{ temp.template_type }}">
+            </div>
+            <div class="mb-3">
+                <label for="clickToActions" class="form-label">Click to Actions:</label>
+                <input type="text" class="form-control" id="clickToActions" name="clickToActions" value="https://rzp.io/l/ownyourvoice" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="uploadFile" class="form-label">Upload Media File:</label>
+                <input type="file" class="form-control" id="uploadFile" name="uploadFile">
+            </div>
+            <div class="mb-3">
+                <label for="xlsFile" class="form-label">Upload .XLS File:</label>
+                <input type="file" class="form-control" id="xlsFile" name="xlsFile">
+                <small class="text-danger">.XLS File Only! 0 Variable column should be there in File.</small>
+            </div>
+            <div class="mb-3">
+                <label for="templateMessage" class="form-label">Template Message:</label>
+                <textarea class="form-control" id="templateMessage" name="templateMessage" rows="4">{{ temp.message }}</textarea>
+            </div>
+            <div class="text-end">
+                <button type="submit" class="btn btn-primary">Send Group WA</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock bussiness_content %}

@@ -1,0 +1,93 @@
+
+.header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    
+    text-align: center;
+    color: linear-gradient(90deg, #2C3E50, #4CA1AF);
+    padding: 10px;
+    border-radius: 8px;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0 !important;
+}
+.container {
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100%;
+    margin: 0 auto;
+    padding: 5px;
+    background-color: rgb(239, 239, 239);
+}
+.table-responsive {
+    overflow-x: auto;
+}
+table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    background-color: #fff !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+}
+.thead {
+    background: linear-gradient(90deg, #2C3E50, #4CA1AF);
+    text-align: center;
+    color: white;
+}
+.thead th {
+    padding: 12px 16px;
+    text-align: center;
+    color: #fff !important;
+    font-weight: bold;
+}
+#userTable tbody td {
+    padding: 12px 16px;
+    text-align: center;
+    font-size: medium;
+}
+.action-icon {
+    cursor: pointer;
+    color: #0e3fcf;
+}
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_paginate {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.dataTables_wrapper .dataTables_filter {
+    float: right;
+}
+.dataTables_wrapper .dataTables_paginate {
+    float: right;
+    margin-top: 10px;
+    font-size: 0.5rem; /* Reduce pagination font size */
+}
+.edit-link, .delete-link {
+    color: #000000;
+    margin-right: 10px;
+    text-decoration: none;
+}
+.delete-link {
+    color: red;
+}
+.dt-buttons {
+    float: left;
+    margin-right: 20px;
+}
+.dt-buttons .btn-sm {
+    padding: 2px 5px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 2px;
+    align-items: flex-end;
+}
+.dataTables_info {
+    font-size: 0.8rem; /* Reduced font size for "Showing entries" info */
+}
+.dataTables_filter input {
+    width: 150px; /* Reduced search bar size */
+    display: inline-block;
+    font-size: small;
+}

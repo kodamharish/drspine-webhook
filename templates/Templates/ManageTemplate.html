@@ -1,0 +1,97 @@
+    {% extends 'app_template/bussiness.html' %}
+    {% load static %}
+
+    {% block title %} Manage WA {% endblock %}
+
+    {% block styles %}
+        {{ block.super }}
+        <link rel="stylesheet" href="{% static 'css/templateswa/managetemplate.css' %}">
+        <style>
+            
+        </style>
+    {% endblock %}
+
+    {% block bussiness_content %}
+    <div class="container my-2">
+        <div class="card-header text-center">
+            <h4>Manage Whastapp<span class="text-success"> Template</span></h4>
+        </div>
+
+        <div class="search-container">
+            <input class="form-control" id="tableSearch" type="text" placeholder="Search...">
+        </div>
+
+        <div class="table-container">
+            <table class="table table-hover table-bordered table-striped" id="groupTable">
+                <thead class="table-th">
+                    <tr>
+                        <th onclick="sortTable(0)">Sl No</th>
+                        <th onclick="sortTable(1)">Template Name</th>
+                        <th onclick="sortTable(2)">Language</th>
+                        <th onclick="sortTable(3)">Category</th>
+                        <th onclick="sortTable(4)">Template Type</th>
+                        <th onclick="sortTable(5)">Template Message</th>
+                        <th onclick="sortTable(6)">Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in data %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ item.name }}</td>
+                            <td>{{ item.language }}</td>
+                            <td>{{ item.category }}</td>
+                            <td>{{ item.template_type }}</td>
+                            <td>{{ item.message }}</td>
+                            <td>Approved</td>
+                            <td class="icon">
+                                <a href="" class="delete-link"
+                                onclick="return confirm('Are you sure you want to delete this template?');">
+                                    <i class="fas fa-trash-alt delete-icon"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Search functionality
+        document.getElementById("tableSearch").addEventListener("keyup", function() {
+            let input = this.value.toLowerCase();
+            let rows = document.querySelectorAll("#groupTable tbody tr");
+
+            rows.forEach(function(row) {
+                let text = row.textContent.toLowerCase();
+                row.style.display = text.includes(input) ? "" : "none";
+            });
+        });
+
+        // Sort functionality
+        function sortTable(n) {
+            let table = document.getElementById("groupTable");
+            let rows = Array.from(table.rows).slice(1);
+            let ascending = table.rows[0].cells[n].classList.toggle("ascending");
+
+            rows.sort(function(rowA, rowB) {
+                let cellA = rowA.cells[n].textContent.trim();
+                let cellB = rowB.cells[n].textContent.trim();
+
+                if (!isNaN(cellA) && !isNaN(cellB)) {
+                    return ascending ? cellA - cellB : cellB - cellA;
+                } else {
+                    return ascending ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
+                }
+            });
+
+            rows.forEach(function(row) {
+                table.tBodies[0].appendChild(row);
+            });
+        }
+    </script>
+
+    {% endblock bussiness_content %}

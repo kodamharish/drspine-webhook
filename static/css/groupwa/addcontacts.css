@@ -1,0 +1,45 @@
+body{
+    background-color: #f0f0f0 !important;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 75vh;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.card {
+    width: 100%;
+    max-width: 600px;
+    height: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+
+.upload-option {
+    margin-bottom: 20px;
+}
+.card-header h4 {
+    font-size: 1.25rem; /* Smaller font size for header */
+    font-weight: bold;
+    color: #1d2dbd; /* Consistent color format */
+}
+.upload-option a {
+    display: inline-block;
+    text-decoration: none;
+    margin: 20px;
+    color: #333;
+}
+
+.upload-option a:hover {
+    color: blue;
+}
+
+.icon {
+    font-size: 24px;
+}

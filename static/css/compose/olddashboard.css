@@ -1,0 +1,46 @@
+body {
+    background-color: #f0f0f0 !important;
+}
+.card {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease;
+    background: rgba(255, 255, 255, 0.8);
+    border: 3px;
+    border-color: black;
+}
+
+.card:hover {
+    cursor: pointer;
+    box-shadow: 0 4px 8px #fbfbfb;
+}
+
+.modal-content {
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-backdrop.show {
+    opacity: 0.5;
+}
+
+.modal.fade {
+    border-radius: 20px;
+}
+
+.info-card {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.info-card span {
+    display: block;
+}
+
+.info-card a {
+    text-decoration: underline;
+}
